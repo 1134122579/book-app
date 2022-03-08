@@ -1,0 +1,12 @@
+<view>
+<!-- 搜索 -->
+  <!-- 搜索 -->
+  <van-search value="{{ searchValue}}"   placeholder="搜索" use-action-slot shape="round" bind:change="onChange" bind:search="onSearch">
+    <view slot="action" bind:tap="onClick">
+      <view class="scan">
+        <van-icon name="scan" size="50rpx" />
+      </view>
+    </view>
+  </van-search>
+
+</view>

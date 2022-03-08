@@ -1,0 +1,85 @@
+<view class="home">
+  <!-- 搜索 -->
+  <van-search value="{{ searchValue}}" bindtap="gosearch" disabled  placeholder="搜索" use-action-slot shape="round">
+    <view slot="action" catchtap="nogo"  bind:tap="onClick">
+      <view class="scan">
+        <van-icon name="scan" size="50rpx" />
+      </view>
+    </view>
+  </van-search>
+  <!-- 最新上架 -->
+  <block>
+    <view class="modelBlock">
+      <view class="type_style">
+        <view class="type_title">
+          最新上架
+        </view>
+        <view class="moreStyle">
+          <view>更多</view>
+          <van-icon name="arrow" />
+        </view>
+      </view>
+      <!-- 列表 -->
+      <view class="type_list">
+        <view class="chunk flexcolumn" wx:for="{{list}}" wx:key="index" data-item="{{item}}" bindtap="gobookdetail">
+          <view class="imagestyle">
+            <image style="width: 100%;" mode="widthFix" src="{{item.cover}}"></image>
+          </view>
+          <!-- <image></image> -->
+          <view class="chunk_title">
+            {{item.title}}</view>
+          <view class="chunk_desc">
+            {{item.desc}}</view>
+        </view>
+      </view>
+    </view>
+
+  </block>
+  <!-- 热门书籍 -->
+  <block>
+    <view class="modelBlock">
+      <view class="type_style">
+        <view class="type_title">
+          热门书籍
+        </view>
+        <view class="moreStyle">
+          <view>更多</view>
+          <van-icon name="arrow" />
+        </view>
+      </view>
+      <!-- 列表 -->
+      <view class="now_list">
+        <view class="nowchunk " wx:for="{{list}}" wx:key="index"  data-item="{{item}}" bindtap="gobookdetail">
+          <view class="now_imagestyle">
+            <image style="width: 100%;" mode="widthFix" src="{{item.cover}}"></image>
+          </view>
+          <!-- <image></image> -->
+          <view class="textStyle">
+            <view class="textStyle_top">
+              <view class="now_chunk_title">
+                {{item.title}}
+              </view>
+              <!-- 评星 -->
+              <view class="now_chunk_rate">
+                <van-rate value="{{ value }}" size="24rpx" allow-half void-icon="star" void-color="#eee" />
+              </view>
+              <view class="now_chunk_desc">
+              {{item.desc}}
+            </view>
+            </view>
+            <view class="now_chunk_">
+              <text class="now_chunk_one">0人借过</text>
+              <text class="now_chunk_one">0人收藏</text>
+              <text class="now_chunk_one">0条书评</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </block>
+
+
+
+
+</view>

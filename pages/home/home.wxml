@@ -1,0 +1,11 @@
+<view wx:if="{{active=='home'}}">
+  <HomePage />
+</view>
+
+
+
+<view>
+  <van-tabbar active="{{ active }}" bind:change="onChange" active-color="#ED6925">
+    <van-tabbar-item name="{{item.to}}" icon="{{active==item.to?item.active_icon:item.icon}}" wx:for="{{tabbarList}}" wx:key="id">{{item.name}}</van-tabbar-item>
+  </van-tabbar>
+</view>
