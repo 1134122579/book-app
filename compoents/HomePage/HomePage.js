@@ -53,6 +53,11 @@ Page({
       },
     ],
   },
+  gomore(){
+    wx.navigateTo({
+      url: '/pages/bookclass/bookclass',
+    })
+  },
   nogo(){
 
   },
@@ -64,11 +69,7 @@ Page({
   onChange(event) {
     this.setData({ active: event.detail });
   },
-  gobookdetail(){
-wx.navigateTo({
-  url: '/pages/bookdetail/bookdetail',
-})
-  },
+
 
   /**
    * 生命周期函数--监听页面加载

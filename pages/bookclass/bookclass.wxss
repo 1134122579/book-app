@@ -1,0 +1,25 @@
+page{
+  --grid-item-content-background-color: #F6F6F6;
+  --grid-item-content-padding:20rpx 10rpx;
+}
+.type{
+ /* background: #; */
+ height: 100%;
+ padding-top: 20rpx;
+}
+.calssstyle{
+  background: #F6F6F6;
+}
+.griditem{
+  background: #F6F6F6;
+  text-align: center;
+}
+.title{
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.desc{
+  font-size: 24rpx;
+  color: #807e7e;
+  padding: 10rpx 0;
+}

@@ -1,0 +1,50 @@
+
+.nowchunk {
+  background: #fff;
+  border-radius: 10rpx;
+  box-shadow: 0 0 10rpx #ccc;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 46rpx;
+  height: 280rpx;
+}
+
+.now_imagestyle {
+  margin-left: 30rpx;
+  margin-top: -20rpx;
+  height: 280rpx;
+  overflow: hidden;
+  border-radius: 8rpx;
+  width: 200rpx;
+}
+
+.textStyle {
+  font-size: 28rpx;
+  flex: 1;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+  height: 100%;
+  padding: 20rpx;
+}
+
+.now_chunk_title {
+  font-weight: 600;
+  font-size: 30rpx;
+}
+
+.now_chunk_desc {
+  color: #ccc;
+  font-size: 24rpx;
+}
+/* 书本记录 */
+.now_chunk_{
+  color: #ccc;
+  font-size: 24rpx;
+}
+.now_chunk_one{
+  margin-right: 10rpx;
+}

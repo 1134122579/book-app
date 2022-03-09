@@ -14,7 +14,7 @@
         <view class="type_title">
           最新上架
         </view>
-        <view class="moreStyle">
+        <view class="moreStyle" bindtap="gomore">
           <view>更多</view>
           <van-icon name="arrow" />
         </view>
@@ -42,38 +42,16 @@
         <view class="type_title">
           热门书籍
         </view>
-        <view class="moreStyle">
+        <view class="moreStyle" bindtap="gomore">
           <view>更多</view>
           <van-icon name="arrow" />
         </view>
       </view>
       <!-- 列表 -->
       <view class="now_list">
-        <view class="nowchunk " wx:for="{{list}}" wx:key="index"  data-item="{{item}}" bindtap="gobookdetail">
-          <view class="now_imagestyle">
-            <image style="width: 100%;" mode="widthFix" src="{{item.cover}}"></image>
-          </view>
-          <!-- <image></image> -->
-          <view class="textStyle">
-            <view class="textStyle_top">
-              <view class="now_chunk_title">
-                {{item.title}}
-              </view>
-              <!-- 评星 -->
-              <view class="now_chunk_rate">
-                <van-rate value="{{ value }}" size="24rpx" allow-half void-icon="star" void-color="#eee" />
-              </view>
-              <view class="now_chunk_desc">
-              {{item.desc}}
-            </view>
-            </view>
-            <view class="now_chunk_">
-              <text class="now_chunk_one">0人借过</text>
-              <text class="now_chunk_one">0人收藏</text>
-              <text class="now_chunk_one">0条书评</text>
-            </view>
-          </view>
-        </view>
+         <block wx:for="{{list}}" wx:key="index" >
+          <BookModel book="{{item}}"/>
+        </block>
       </view>
     </view>
 

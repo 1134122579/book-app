@@ -1,8 +1,15 @@
-<view wx:if="{{active=='home'}}">
+<!-- <view wx:if="{{active=='home'}}">
   <HomePage />
-</view>
-
-
+</view> -->
+<van-transition   duration="400" show="{{ active=='home' }}" name="fade" custom-class="block">
+  <HomePage />
+</van-transition>
+<van-transition   duration="400" show="{{ active=='class' }}" name="fade" custom-class="block">
+  <bookclass />
+</van-transition>
+<van-transition   duration="400" show="{{ active=='friends' }}" name="fade" custom-class="block">
+  <morepage />
+</van-transition>
 
 <view>
   <van-tabbar active="{{ active }}" bind:change="onChange" active-color="#ED6925">

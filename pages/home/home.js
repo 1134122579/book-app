@@ -16,13 +16,13 @@ Page({
       {
         id:2,
         name: "借阅",
-        icon:'/assets/icon/order.png',
-        active_icon:'/assets/icon/orderac.png',
-        to:"search"
+        icon:'/assets/icon/jy.png',
+        active_icon:'/assets/icon/jyac.png',
+        to:"class"
       },
       {
         id:3,
-        name: "动态",
+        name: "订单",
         icon:'/assets/icon/order.png',
         active_icon:'/assets/icon/orderac.png',
         to:"newspaper"

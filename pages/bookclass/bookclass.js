@@ -1,12 +1,11 @@
-// pages/bookdetail/bookdetail.js
-import {formatTime} from '../../utils/util'
+// pages/bookclass/bookclass.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    value:4
+    columnnum:3
   },
 
   /**
@@ -27,7 +26,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-   console.log(formatTime(new Date()))
+
   },
 
   /**

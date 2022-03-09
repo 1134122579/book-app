@@ -1,0 +1,23 @@
+
+
+<view class="type" >
+  <van-grid gutter="{{ 10 }}"  border="{{false}}" column-num="{{columnnum}}">
+  <van-grid-item  class="griditem"  wx:for="{{ 9 }}"  use-slot>
+  <!-- 内容 -->
+  <view class="calssstyle">
+    <view class="title">
+        家庭教育
+    </view>
+    <view class="desc">
+    1本书
+    </view>
+    <image
+      style="width: 100%; height: 90px;"
+      mode="aspectFit"
+      src="https://img.yzcdn.cn/vant/apple-{{ index + 1 }}.jpg"
+    />
+  </view>
+ 
+  </van-grid-item>
+</van-grid>
+</view>

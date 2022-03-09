@@ -1,0 +1,25 @@
+<view class="nowchunk " data-item="{{book}}" bindtap="gobookdetail">
+  <view class="now_imagestyle">
+    <image style="width: 100%;" mode="widthFix" src="{{book.cover}}"></image>
+  </view>
+  <!-- <image></image> -->
+  <view class="textStyle">
+    <view class="textStyle_top">
+      <view class="now_chunk_title">
+        {{book.title}}
+      </view>
+      <!-- 评星 -->
+      <view class="now_chunk_rate">
+        <van-rate value="{{ value }}" size="24rpx" allow-half void-icon="star" void-color="#eee" />
+      </view>
+      <view class="now_chunk_desc">
+        {{book.desc}}
+      </view>
+    </view>
+    <view class="now_chunk_">
+      <text class="now_chunk_one">0人借过</text>
+      <text class="now_chunk_one">0人收藏</text>
+      <text class="now_chunk_one">0条书评</text>
+    </view>
+  </view>
+</view>
