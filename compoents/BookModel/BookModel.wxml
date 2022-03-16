@@ -10,7 +10,7 @@
       </view>
       <!-- 评星 -->
       <view class="now_chunk_rate">
-        <van-rate value="{{ value }}" size="24rpx" allow-half void-icon="star" void-color="#eee" />
+        <van-rate value="{{ value }}" size="24rpx"  color="#FFD21E"  />
       </view>
       <view class="now_chunk_desc">
         {{book.desc}}

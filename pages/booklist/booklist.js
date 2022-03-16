@@ -1,42 +1,41 @@
-// pages/home/home.js
+// pages/booklist/booklist.js
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    active:'home',
-    tabbarList: [
+    typelist: [
       {
-        id:1,
-        name: "首页",
-        icon:'/assets/icon/home.png',
-        active_icon:'/assets/icon/homeac.png',
-        to:"home"
+        id: 1,
+        name: "文学",
       },
       {
-        id:2,
-        name: "借阅",
-        icon:'/assets/icon/jy.png',
-        active_icon:'/assets/icon/jyac.png',
-        to:"class"
+        id: 2,
+        name: "自然",
       },
       {
-        id:3,
-        name: "订单",
-        icon:'/assets/icon/order.png',
-        active_icon:'/assets/icon/orderac.png',
-        to:"order"
-      },  {
-        id:4,
-        name: "我的",
-        icon:'/assets/icon/my1.png',
-        active_icon:'/assets/icon/myac1.png',
-        to:"friends"
+        id: 2,
+        name: "自然",
+      },    {
+        id: 2,
+        name: "自然",
+      },    {
+        id: 2,
+        name: "自然",
+      },    {
+        id: 2,
+        name: "自然",
+      },    {
+        id: 2,
+        name: "自然",
+      },    {
+        id: 2,
+        name: "自然",
+      },    {
+        id: 2,
+        name: "自然",
       },
     ],
-  },
-  onChange(event) {
-    this.setData({ active: event.detail });
   },
 
   /**
@@ -52,7 +51,9 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {},
+  onShow: function () {
+    this.selectComponent('#tabs').resize();
+  },
 
   /**
    * 生命周期函数--监听页面隐藏

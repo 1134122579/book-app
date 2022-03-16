@@ -2,6 +2,8 @@
   "pages": [
     "pages/home/home",
     "pages/bookclass/bookclass",
+    "pages/booklist/booklist",
+    "pages/order/order",
     "pages/searchpage/searchpage",
     "pages/bookdetail/bookdetail",
     "pages/index/index",
@@ -21,6 +23,7 @@
     "HomePage": "/compoents/HomePage/HomePage",
     "BookModel": "/compoents/BookModel/BookModel",
     "bookclass": "/pages/bookclass/bookclass",
+    "order": "/pages/order/order",
     "morepage": "/pages/morepage/more",
     "van-icon": "@vant/weapp/icon/index",
     "van-cell": "@vant/weapp/cell/index",
@@ -31,7 +34,9 @@
     "van-goods-action-button": "@vant/weapp/goods-action-button/index",
     "van-grid": "@vant/weapp/grid/index",
     "van-transition": "@vant/weapp/transition/index",
-    "van-grid-item": "@vant/weapp/grid-item/index"
+    "van-grid-item": "@vant/weapp/grid-item/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index"
     
     
   }

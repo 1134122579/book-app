@@ -4,7 +4,7 @@
   <van-grid gutter="{{ 10 }}"  border="{{false}}" column-num="{{columnnum}}">
   <van-grid-item  class="griditem"  wx:for="{{ 9 }}"  use-slot>
   <!-- 内容 -->
-  <view class="calssstyle">
+  <view class="calssstyle" bindtap="golist" data-item="{{item}}">
     <view class="title">
         家庭教育
     </view>
@@ -17,7 +17,6 @@
       src="https://img.yzcdn.cn/vant/apple-{{ index + 1 }}.jpg"
     />
   </view>
- 
   </van-grid-item>
 </van-grid>
 </view>

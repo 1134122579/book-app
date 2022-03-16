@@ -1,0 +1,13 @@
+<view class="booklist">
+  <van-tabs active="{{ active }}" sticky ellipsis="{{false}}">
+    <van-tab title="{{item.name}}" wx:for="{{typelist}}" name="{{item.id}}">
+  <!-- 列表 -->
+      <block wx:for="{{10}}">
+        <BookModel book="item" />
+      </block>
+    </van-tab>
+  </van-tabs>
+  <!-- 列表 -->
+  <view>
+  </view>
+</view>

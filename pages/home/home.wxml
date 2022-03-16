@@ -10,6 +10,10 @@
 <van-transition   duration="400" show="{{ active=='friends' }}" name="fade" custom-class="block">
   <morepage />
 </van-transition>
+<van-transition   duration="400" show="{{ active=='order' }}" name="fade" custom-class="block">
+  <order />
+</van-transition>
+
 
 <view>
   <van-tabbar active="{{ active }}" bind:change="onChange" active-color="#ED6925">

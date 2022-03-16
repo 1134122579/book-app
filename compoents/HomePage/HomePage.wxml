@@ -8,7 +8,7 @@
     </view>
   </van-search>
   <!-- 最新上架 -->
-  <block>
+  <block class="newbook">
     <view class="modelBlock">
       <view class="type_style">
         <view class="type_title">
@@ -54,10 +54,5 @@
         </block>
       </view>
     </view>
-
   </block>
-
-
-
-
 </view>

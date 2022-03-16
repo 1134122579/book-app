@@ -10,45 +10,45 @@ Page({
       {
         id:1,
         title: "流浪地球",
-        cover:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg9.doubanio.com%2Fview%2Frichtext%2Flarge%2Fpublic%2Fp240054435.jpg&refer=http%3A%2F%2Fimg9.doubanio.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1649314442&t=55a8d14477bf6078c45d7f6c026900c6',
+        cover:'http://mfyfile.greatorange.cn/CityBook/20220311161723/472/1430136292-1_w_2.jpg',
         desc:"暂无作者信息"
       },
       {
         id:2,
         title: "流浪地球",
-        cover:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg9.doubanio.com%2Fview%2Frichtext%2Flarge%2Fpublic%2Fp240054435.jpg&refer=http%3A%2F%2Fimg9.doubanio.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1649314442&t=55a8d14477bf6078c45d7f6c026900c6',
+        cover:'http://mfyfile.greatorange.cn/CityBook/20220311161723/472/1430136292-1_w_2.jpg',
         desc:"暂无作者信息"
       },
       {
         id:3,
         title: "流浪地球",
-        cover:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg9.doubanio.com%2Fview%2Frichtext%2Flarge%2Fpublic%2Fp240054435.jpg&refer=http%3A%2F%2Fimg9.doubanio.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1649314442&t=55a8d14477bf6078c45d7f6c026900c6',
+        cover:'http://mfyfile.greatorange.cn/CityBook/20220311161723/472/1430136292-1_w_2.jpg',
         desc:"暂无作者信息"
       },  {
         id:4,
         title: "流浪地球",
-        cover:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg9.doubanio.com%2Fview%2Frichtext%2Flarge%2Fpublic%2Fp240054435.jpg&refer=http%3A%2F%2Fimg9.doubanio.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1649314442&t=55a8d14477bf6078c45d7f6c026900c6',
+        cover:'http://mfyfile.greatorange.cn/CityBook/20220311161723/472/1430136292-1_w_2.jpg',
         desc:"暂无作者信息"
       },
       {
         id:4,
         title: "流浪地球",
-        cover:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg9.doubanio.com%2Fview%2Frichtext%2Flarge%2Fpublic%2Fp240054435.jpg&refer=http%3A%2F%2Fimg9.doubanio.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1649314442&t=55a8d14477bf6078c45d7f6c026900c6',
+        cover:'http://mfyfile.greatorange.cn/CityBook/20220311161723/472/1430136292-1_w_2.jpg',
         desc:"暂无作者信息"
       },  {
         id:4,
         title: "流浪地球",
-        cover:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg9.doubanio.com%2Fview%2Frichtext%2Flarge%2Fpublic%2Fp240054435.jpg&refer=http%3A%2F%2Fimg9.doubanio.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1649314442&t=55a8d14477bf6078c45d7f6c026900c6',
+        cover:'http://mfyfile.greatorange.cn/CityBook/20220311161723/472/1430136292-1_w_2.jpg',
         desc:"暂无作者信息"
       },  {
         id:4,
         title: "流浪地球",
-        cover:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg9.doubanio.com%2Fview%2Frichtext%2Flarge%2Fpublic%2Fp240054435.jpg&refer=http%3A%2F%2Fimg9.doubanio.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1649314442&t=55a8d14477bf6078c45d7f6c026900c6',
+        cover:'http://mfyfile.greatorange.cn/CityBook/20220311161723/472/1430136292-1_w_2.jpg',
         desc:"暂无作者信息"
       },  {
         id:4,
         title: "流浪地球",
-        cover:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg9.doubanio.com%2Fview%2Frichtext%2Flarge%2Fpublic%2Fp240054435.jpg&refer=http%3A%2F%2Fimg9.doubanio.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1649314442&t=55a8d14477bf6078c45d7f6c026900c6',
+        cover:'http://mfyfile.greatorange.cn/CityBook/20220311161723/472/1430136292-1_w_2.jpg',
         desc:"暂无作者信息"
       },
     ],
