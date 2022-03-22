@@ -7,6 +7,7 @@
     "pages/searchpage/searchpage",
     "pages/bookdetail/bookdetail",
     "pages/index/index",
+    "pages/login/login",
     "pages/logs/logs"
   ],
   "window": {
@@ -29,6 +30,7 @@
     "van-cell": "@vant/weapp/cell/index",
     "van-cell-group": "@vant/weapp/cell-group/index",
     "van-rate": "@vant/weapp/rate/index",
+    "van-button": "@vant/weapp/button/index",
     "van-goods-action": "@vant/weapp/goods-action/index",
     "van-goods-action-icon": "@vant/weapp/goods-action-icon/index",
     "van-goods-action-button": "@vant/weapp/goods-action-button/index",

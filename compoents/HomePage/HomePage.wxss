@@ -84,7 +84,7 @@ page {
 }
 
 .now_imagestyle {
-  width: 210rpx;
+  width: 280rpx;
   min-height: 260rpx;
   max-height: 280rpx;
   overflow: hidden;

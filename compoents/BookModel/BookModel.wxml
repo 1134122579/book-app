@@ -1,6 +1,6 @@
 <view class="nowchunk " data-item="{{book}}" bindtap="gobookdetail">
   <view class="now_imagestyle">
-    <image style="width: 100%;" mode="widthFix" src="{{book.cover}}"></image>
+    <image style="width: 100%;height: 100%;" mode="widthFix"  src="{{book.cover}}"></image>
   </view>
   <!-- <image></image> -->
   <view class="textStyle">

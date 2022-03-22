@@ -1,4 +1,7 @@
 // pages/home/home.js
+import storage from '../../utils/cache'
+import Api from '../../api/index'
+
 Page({
   /**
    * 页面的初始数据
@@ -36,13 +39,26 @@ Page({
     ],
   },
   onChange(event) {
-    this.setData({ active: event.detail });
-  },
-
+    if(storage.getToken()){
+      this.setData({ active: event.detail });
+    }else{
+      wx.reLaunch({
+        url: '/pages/login/login',
+      })
+    }
+ },
+//  获取图书分类/
+ getBookClass(){
+  Api.getBookClass().then(res=>{
+    console.log(res)
+  })
+},
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {},
+  onLoad: function (options) {
+    this.getBookClass()
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
