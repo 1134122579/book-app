@@ -1,1 +1,10 @@
 /* pages/home/home.wxss */
+.modelblock{
+  width: 100%;
+  height: 100%;
+}
+/* 订单 */
+.orderlist{
+  padding: 40px 0;
+  box-sizing: border-box;
+}

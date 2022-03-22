@@ -2,15 +2,30 @@
 <view class="book">
   <view class="bookheader">
     <view class="cover">
-      书封面
+      <image src="{{bookdetail.cover}}" mode="aspectFill" style="width: 100%;height: 100%;"></image>
     </view>
     <view class="bookblock">
       <view class="book_title">
-        我是书名
+        {{bookdetail.book_name}}
       </view>
       <view class="bookrate">
-        <van-rate value="{{ value }}" allow-half void-icon="star" void-color="#eee" size="24rpx" />
-        <view>0人评论</view>
+        <van-rate value="{{bookdetail.stars }}" allow-half void-icon="star" readonly void-color="#eee" size="24rpx" />
+        <view> {{bookdetail.stars}}</view>
+      </view>
+      <view class="bookrate ">
+        <view>编号：{{bookdetail.book_no}}</view>
+      </view>
+      <view class="bookrate sale_price">
+        <view>￥{{bookdetail.sale_price}}</view>
+      </view>
+      <view class="bookrate ">
+        <view>{{bookdetail.stock_num}} 本</view>
+      </view>
+
+      <view class="bookrate">
+        <text class="now_chunk_one">{{bookdetail.like_num}}人借过</text>
+        <text class="now_chunk_one">{{bookdetail.collect_num}}人收藏</text>
+        <text class="now_chunk_one">{{bookdetail.pv_num}}浏览</text>
       </view>
 
     </view>
@@ -19,58 +34,58 @@
     </view>
 
   </view>
- <view class="type">
-  <van-cell title="分类" is-link value="家庭教育" />
-  <van-cell title="书架" is-link value="默认书架" />
- </view>
- 
- <!-- 详情 -->
- <view class="booktexrdesc">
+  <view class="type">
+    <van-cell title="分类" is-link value="{{bookdetail.class_name}}" />
+    <van-cell title="书架" is-link value="{{bookdetail.shelf_name}}" />
+  </view>
+
+  <!-- 详情 -->
+  <view class="booktexrdesc">
     <view class="textcontent">
       详情
     </view>
-    <view  class="textcontentdesc">
-      暂无介绍
+    <view class="textcontentdesc">
+      {{ bookdetail. desc||'暂无介绍'}}
     </view>
- </view>
- <!-- 评论 -->
- <view class="comment">
+  </view>
+  <!-- 评论 -->
+  <view class="comment">
     <view class="comment_title">
       全部书评 （10）
     </view>
-    <view  class="comment_list">
+    <view class="comment_list">
       <view class="commentBlock" wx:for="{{10}}">
-    
         <view class="comment_header">
           <view class="header_image">
-            
           </view>
           <view class="user_name">
             用户名字
           </view>
           <!-- 评分 -->
           <view class="user_rate">
-            <van-rate value="{{ value }}" allow-half void-icon="star" void-color="#eee" size="24rpx" /></view>
+            <van-rate value="{{ value }}" allow-half void-icon="star" void-color="#eee" size="24rpx" />
+          </view>
         </view>
 
-          <view class="comment-content">
-            这本书很不错
-          </view>
-            <view class="comment-time">
-              2022-03-05
-            </view>
+        <view class="comment-content">
+          这本书很不错
+        </view>
+        <view class="comment-time">
+          2022-03-05
+        </view>
       </view>
     </view>
- </view>
+  </view>
 
- <!-- 书籍操作 -->
- <view>
-  <van-goods-action>
-  <van-goods-action-icon icon="share-o" class="actioiconn" text="分享" />
-  <van-goods-action-icon icon="comment-o"  class="actioiconn" text="评论" info="5" />
-  <van-goods-action-icon icon="like-o"  class="actioiconn" text="收藏" />
-  <!-- <van-goods-action-button color="#be99ff" text="加入购物车" type="warning" /> -->
-  <van-goods-action-button color="#F7DA65" size="small" text="扫码借书" />
-</van-goods-action>
-</view>
+  <!-- 书籍操作 -->
+  <view>
+    <van-goods-action>
+      <van-goods-action-icon icon="share-o" class="actioiconn" text="分享" open-type="share" />
+      <van-goods-action-icon icon="comment-o" class="actioiconn" text="评论" info="5" />
+      <van-goods-action-icon icon="{{bookdetail.is_collect==1?'like':'like-o'}}" bind:click="oncollect" class="actioiconn" text="收藏" />
+      <!-- <van-goods-action-button color="#be99ff" text="加入购物车" type="warning" /> -->
+      <van-goods-action-button color="#F7DA65" size="small" text="{{isbookorder?'已申请借书':'借书'}}" 
+      disabled="{{isbookorder}}" bind:click="payRentBookOrder" />
+    </van-goods-action>
+  </view>
 </view>

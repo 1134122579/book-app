@@ -1,4 +1,5 @@
 {
+  "setting": {},
   "condition": {
     "plugin": {
       "list": []
@@ -15,6 +16,13 @@
           "name": "分类列表",
           "pathName": "pages/booklist/booklist",
           "query": "class_id=5",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "详情",
+          "pathName": "pages/bookdetail/bookdetail",
+          "query": "id=1",
           "scene": null,
           "launchMode": "default"
         }

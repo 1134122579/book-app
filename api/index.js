@@ -50,7 +50,7 @@ export default {
       url: `getBook`,
       method: "get",
       params,
-      loading: false,
+      loading: true,
       isThree: false,
     });
   },
@@ -72,5 +72,76 @@ export default {
       isThree: false,
     });
   },
-
+  addCollect(params) {
+    return fly({
+      url: `addCollect`,
+      method: "post",
+      params,
+      loading: false,
+      isThree: false,
+    });
+  },
+  cancelCollect(params) {
+    return fly({
+      url: `cancelCollect`,
+      method: "post",
+      params,
+      loading: false,
+      isThree: false,
+    });
+  },
+  zanBook(params) {
+    return fly({
+      url: `zanBook`,
+      method: "post",
+      params,
+      loading: false,
+      isThree: false,
+    });
+  },
+  payRentBookOrder(params) {
+    return fly({
+      url: `payRentBookOrder`,
+      method: "post",
+      params,
+      loading: true,
+      isThree: false,
+    });
+  },
+  getUserOrder(params) {
+    return fly({
+      url: `getUserOrder`,
+      method: "post",
+      params,
+      loading: true,
+      isThree: false,
+    });
+  },
+  getNewBookList(params) {
+    return fly({
+      url: `getNewBookList`,
+      method: "get",
+      params,
+      loading: true,
+      isThree: false,
+    });
+  },
+  getHotBookList(params) {
+    return fly({
+      url: `getHotBookList`,
+      method: "get",
+      params,
+      loading: true,
+      isThree: false,
+    });
+  },
+  getTuiBookList(params) {
+    return fly({
+      url: `getTuiBookList`,
+      method: "get",
+      params,
+      loading: true,
+      isThree: false,
+    });
+  },
 };

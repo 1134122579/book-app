@@ -1,18 +1,38 @@
 <!-- <view wx:if="{{active=='home'}}">
   <HomePage />
 </view> -->
-<van-transition   duration="400" show="{{ active=='home' }}" name="fade" custom-class="block">
-  <HomePage />
+<!-- 首页 -->
+<van-transition duration="400" show="{{ active=='home' }}" name="fade" custom-class="block">
+  <HomePage HotBookList="{{HotBookList}}" NewBookList="{{NewBookList}}"/>
 </van-transition>
-<van-transition   duration="400" show="{{ active=='class' }}" name="fade" custom-class="block">
+<!-- 借阅 -->
+<van-transition duration="400" show="{{ active=='class' }}" name="fade" custom-class="block">
   <bookclass />
 </van-transition>
-<van-transition   duration="400" show="{{ active=='friends' }}" name="fade" custom-class="block">
+<!-- 订单 -->
+<van-transition duration="400" show="{{ active=='order' }}" name="fade" custom-class="block">
+  <!-- <order /> -->
+  <view class="bookorderlist modelblock">
+    <van-tabs active="{{ listQuery.status }}" id="tabs" sticky ellipsis="{{false}}" >
+      <van-tab title="{{item.name}}" wx:for="{{ordertypelist}}" name="{{item.id}}">
+        <!-- 列表 -->
+        <view class="orderlist">
+          <block wx:for="{{10}}" class="">
+          <BookModel book="item" />
+        </block>
+        </view>
+      </van-tab>
+    </van-tabs>
+    <!-- 列表 -->
+    <view>
+    </view>
+  </view>
+</van-transition>
+<!-- 个人中心 -->
+<van-transition duration="400" show="{{ active=='friends' }}" name="fade" custom-class="block">
   <morepage />
 </van-transition>
-<van-transition   duration="400" show="{{ active=='order' }}" name="fade" custom-class="block">
-  <order />
-</van-transition>
+
 
 
 <view>

@@ -16,7 +16,6 @@
 }
 
 .cover {
-  background: cadetblue;
   width: 180rpx;
   height: 260rpx;
   border-radius: 8rpx;
@@ -45,6 +44,11 @@
   align-items: flex-start;
   box-sizing: border-box;
   font-size: 24rpx;
+  margin-top: 10rpx;
+}
+.sale_price{
+  font-size: 28rpx;
+  color: #ff0000;
 }
 
 /* 分类 */

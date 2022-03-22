@@ -1,4 +1,4 @@
-<view class="booklist">
+<view class="bookorderlist">
   <van-tabs active="{{ active }}" sticky ellipsis="{{false}}">
     <van-tab title="{{item.name}}" wx:for="{{typelist}}" name="{{item.id}}">
   <!-- 列表 -->

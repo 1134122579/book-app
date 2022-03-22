@@ -8,7 +8,7 @@ Component({
       type:Object,
       value:{},
       observer(newVal, oldVal, changePath){
-        newVal['title']=newVal['title']||newVal['book_name']
+        newVal['title']=newVal?.title||newVal['book_name']
         this.setData({
           bookinfo:newVal
         })

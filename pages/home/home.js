@@ -37,6 +37,24 @@ Page({
         to:"friends"
       },
     ],
+    order_active:'',
+    ordertypelist: [
+      {
+        id: 1,
+        name: "在借",
+      },
+      {
+        id: 2,
+        name: "已还",
+      },
+    ],
+    listQuery:{
+      page:1,
+      status:1
+    },
+    HotBookList:[],
+    NewBookList:[]
+
   },
   onChange(event) {
     if(storage.getToken()){
@@ -47,10 +65,35 @@ Page({
       })
     }
  },
+//  获取订单
+getUserOrder(){
+  let {listQuery}=this.data
+  Api.getUserOrder(listQuery).then(res=>{
+      this.setData({
+        orderList:res
+      })
+  })
+},
 //  获取图书分类/
  getBookClass(){
   Api.getBookClass().then(res=>{
     console.log(res)
+  })
+},
+// 热门
+getHotBookList(){
+  Api.getHotBookList().then(res=>{
+    this.setData({
+      HotBookList:res
+    })
+  })
+},
+// 最新
+getNewBookList(){
+  Api.getNewBookList().then(res=>{
+    this.setData({
+      NewBookList:res
+    })
   })
 },
   /**
@@ -68,7 +111,12 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {},
+  onShow: function () {
+    this.getUserOrder()
+    this.getHotBookList()
+    this.getNewBookList()
+    this.selectComponent('#tabs').resize();
+  },
 
   /**
    * 生命周期函数--监听页面隐藏
