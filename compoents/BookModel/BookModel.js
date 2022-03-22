@@ -6,7 +6,13 @@ Component({
   properties: {
     book:{
       type:Object,
-      value:{}
+      value:{},
+      observer(newVal, oldVal, changePath){
+        newVal['title']=newVal['title']||newVal['book_name']
+        this.setData({
+          bookinfo:newVal
+        })
+      }
     }
   },
 
@@ -14,7 +20,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-    value:3
+    value:3,
+    bookinfo:{}
   },
 
   /**

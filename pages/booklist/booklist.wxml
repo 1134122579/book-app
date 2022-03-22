@@ -1,13 +1,17 @@
 <view class="booklist">
-  <van-tabs active="{{ active }}" sticky ellipsis="{{false}}">
-    <van-tab title="{{item.name}}" wx:for="{{typelist}}" name="{{item.id}}">
-  <!-- 列表 -->
-      <block wx:for="{{10}}">
-        <BookModel book="item" />
+  <van-tabs active="{{ class_id }}" animated id="tabs" sticky ellipsis="{{false}}" bind:change="tabchange">
+    <van-tab title="{{item.name}}" wx:for="{{typelist}}" wx:key="index" name="{{item.id}}">
+      <!-- 列表 -->
+      <block wx:if="{{list.length>0}}">
+        <block wx:for="{{list}}" wx:key="index" wx:for-item="book">
+          <BookModel book="{{book}}" />
+        </block>
+        <view class="isnulllist" hidden="{{isnulllist}}">暂无更多</view>
       </block>
+      <van-empty wx:else description="暂无数据" />
     </van-tab>
   </van-tabs>
   <!-- 列表 -->
-  <view>
-  </view>
+  <!-- <view>
+  </view> -->
 </view>

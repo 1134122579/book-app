@@ -1,19 +1,34 @@
 // pages/bookdetail/bookdetail.js
 import {formatTime} from '../../utils/util'
+import Api from '../../api/index'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    value:4
+    value:4,
+    bookdetail:{},
+    book_id:'',// 
   },
+  getlist(){
+    let {book_id:id}=this.data
+    Api.getBookDetails({id}).then(res=>{
+      this.setData({
+        bookdetail:res
+      })
+    })
 
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let {id:book_id}=options
+    this.setData({
+      book_id
+    })
+    this.getlist()
   },
 
   /**

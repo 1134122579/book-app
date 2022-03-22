@@ -23,7 +23,7 @@
       <view class="type_list">
         <view class="chunk flexcolumn" wx:for="{{list}}" wx:key="index" data-item="{{item}}" bindtap="gobookdetail">
           <view class="imagestyle">
-            <image style="width: 100%;" mode="widthFix" src="{{item.cover}}"></image>
+            <image class="image" mode="widthFix" src="{{item.cover}}"></image>
           </view>
           <!-- <image></image> -->
           <view class="chunk_title">

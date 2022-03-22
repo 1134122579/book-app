@@ -63,12 +63,16 @@ page {
 }
 
 .imagestyle {
-  width: 100%;
+  width: 200rpx;
   min-height: 260rpx;
   max-height: 280rpx;
-  background: "#8A8A8A";
   border-radius: 8rpx;
+  background: #8A8A8A;
   overflow: hidden;
+}
+.image{
+  width: 100%;
+  height: 100%;
 }
 
 .chunk_title {

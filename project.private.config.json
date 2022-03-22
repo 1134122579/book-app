@@ -1,0 +1,24 @@
+{
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "分类列表",
+          "pathName": "pages/booklist/booklist",
+          "query": "class_id=5",
+          "scene": null,
+          "launchMode": "default"
+        }
+      ]
+    }
+  }
+}

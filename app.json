@@ -16,9 +16,11 @@
     "navigationBarTitleText": "淄博城市书房",
     "navigationBarTextStyle": "black"
   },
+  "lazyCodeLoading": "requiredComponents",
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
     "van-tabbar": "@vant/weapp/tabbar/index",
+    "van-empty": "@vant/weapp/empty/index",
     "van-tabbar-item": "@vant/weapp/tabbar-item/index",
     "van-search": "@vant/weapp/search/index",
     "HomePage": "/compoents/HomePage/HomePage",

@@ -1,4 +1,6 @@
 // pages/bookclass/bookclass.js
+import storage from '../../utils/cache'
+import Api from '../../api/index'
 
 Page({
 
@@ -6,24 +8,36 @@ Page({
    * 页面的初始数据
    */
   data: {
-    columnnum:3
+    columnnum:3,
+    list:[]
   },
-  golist(){
+  golist(event){
+    console.log(event)
+    let {item}=event.currentTarget.dataset
     wx.navigateTo({
-      url: '/pages/booklist/booklist',
+      url: '/pages/booklist/booklist?class_id='+item.id,
     })
   },
-
+//  获取图书分类/
+getBookClass(){
+  Api.getBookClass().then(res=>{
+    this.setData({
+      list:res
+    })
+  })
+},
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getBookClass()
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+  
 
   },
 

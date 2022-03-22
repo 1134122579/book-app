@@ -1,25 +1,25 @@
 <view class="nowchunk " data-item="{{book}}" bindtap="gobookdetail">
   <view class="now_imagestyle">
-    <image style="width: 100%;height: 100%;" mode="widthFix"  src="{{book.cover}}"></image>
+    <image class="image" mode="aspectFill"  src="{{book.cover}}"></image>
   </view>
   <!-- <image></image> -->
   <view class="textStyle">
     <view class="textStyle_top">
       <view class="now_chunk_title">
-        {{book.title}}
+        {{bookinfo.title}}
       </view>
       <!-- 评星 -->
       <view class="now_chunk_rate">
-        <van-rate value="{{ value }}" size="24rpx"  color="#FFD21E"  />
+        <van-rate value="{{ bookinfo.stars }}" size="24rpx" readonly  color="#FFD21E"  />
       </view>
       <view class="now_chunk_desc">
-        {{book.desc}}
+        {{bookinfo.desc}}
       </view>
     </view>
     <view class="now_chunk_">
-      <text class="now_chunk_one">0人借过</text>
-      <text class="now_chunk_one">0人收藏</text>
-      <text class="now_chunk_one">0条书评</text>
+      <text class="now_chunk_one">{{bookinfo.like_num}}人借过</text>
+      <text class="now_chunk_one">{{bookinfo.collect_num}}人收藏</text>
+      <text class="now_chunk_one">{{bookinfo.pv_num}}浏览</text>
     </view>
   </view>
 </view>
