@@ -1,44 +1,24 @@
-// pages/bookclass/bookclass.js
-import storage from '../../utils/cache'
-import Api from '../../api/index'
-
+// pages/authpage/authpage.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    columnnum:3,
-    list:[],
-    cover:['http://mfyfile.greatorange.cn/CityBook/20220323101349/927/伊人.webp','http://mfyfile.greatorange.cn/CityBook/20220323101317/391/马可波罗行纪.webp','http://mfyfile.greatorange.cn/CityBook/20220322105808/659/book.webp']
+
   },
-  golist(event){
-    console.log(event)
-    let {item}=event.currentTarget.dataset
-    wx.navigateTo({
-      url: '/pages/booklist/booklist?class_id='+item.id,
-    })
-  },
-//  获取图书分类/
-getBookClass(){
-  Api.getBookClass().then(res=>{
-    this.setData({
-      list:res
-    })
-  })
-},
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getBookClass()
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
 
   },
 

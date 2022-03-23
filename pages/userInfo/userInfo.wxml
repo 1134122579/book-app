@@ -1,0 +1,30 @@
+<view class="userInfo">
+	<van-cell-group>
+		<van-cell class="cell" title="用户头像" border="{{ false}}" required>
+			<view>
+				<image style="width: 100rpx;height: 100rpx;border-radius: 20rpx;" src="{{headimgurl}}"></image>
+			</view>
+		</van-cell>
+		<view class="block">
+			<van-field model:value="{{ name }}" label="用户名" input-align="right" placeholder="请输入用户名" required />
+			<van-field model:value="{{ mobile }}" input-align="right" label="手机号" type="idcard" placeholder="请输入手机号" required maxlength="11" />
+			<!-- <picker mode="date" value="{{birthday}}" start="1950-01-01" end="{{endTime}}" bindchange="bindDateChange">
+				<van-field required input-align="right" readonly value="{{ birthday}}" placeholder="请输入生日" label="生日" />
+			</picker> -->
+		</view>
+		<van-field model:value="{{ idcard }}" required input-align="right" label="身份证号" placeholder="请输入身份证号" border="{{ false }}" />
+		<!-- <van-field model:value="{{ address }}"  required input-align="right" label="地址" placeholder="请输入地址" border="{{ false }}" /> -->
+		<!-- <van-field model:value="{{ desc }}" autosize="{{autosize}}" type="textarea" required input-align="right" label="个人简介" placeholder="请输入个人简介" border="{{ false }}" /> -->
+		<!-- <van-cell class="cell" title="用户背景" border="{{ false}}">
+			<view>
+				<van-uploader file-list="{{fileListcat_bg}}" max-count="1"  use-before-read bind:before-read='beforeRead' bind:after-read="aftercat_bgRead" accept="image" bind:delete="deletecat_bgImage" />
+			</view>
+		</van-cell> -->
+	</van-cell-group>
+
+	<view class="button_">
+		<van-button block bind:click="editUser">
+			立即修改
+		</van-button>
+	</view>
+</view>

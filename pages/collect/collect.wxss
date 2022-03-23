@@ -1,0 +1,8 @@
+
+
+.ismore{
+  text-align: center;
+  color: #cccccc;
+  font-size: 24rpx;
+  padding: 20rpx;
+}

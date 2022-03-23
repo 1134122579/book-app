@@ -9,8 +9,11 @@
         {{bookinfo.title}}
       </view>
       <!-- 评星 -->
-      <view class="now_chunk_rate">
-        <van-rate value="{{ bookinfo.stars }}" size="24rpx" readonly  color="#FFD21E"  />
+      <view class="now_chunk_rate now_chunk_desc">
+        <van-rate value="{{ bookinfo.stars }}" size="24rpx" readonly  color="#FFD21E" void-color="#ccc" />
+      </view>
+      <view class="now_chunk_desc">
+        {{bookinfo.author}}
       </view>
       <view class="now_chunk_desc">
         {{bookinfo.desc}}

@@ -3,23 +3,38 @@
 </view> -->
 <!-- 首页 -->
 <van-transition duration="400" show="{{ active=='home' }}" name="fade" custom-class="block">
-  <HomePage HotBookList="{{HotBookList}}" NewBookList="{{NewBookList}}"/>
+  <HomePage HotBookList="{{HotBookList}}" NewBookList="{{NewBookList}}" />
 </van-transition>
 <!-- 借阅 -->
 <van-transition duration="400" show="{{ active=='class' }}" name="fade" custom-class="block">
-  <bookclass />
+  <!-- 借阅流程 -->
+  <view class="borrw flexcolumn">
+    <view class="borrw-title">
+      借阅流程
+    </view>
+    <image src="/assets/jy.png" mode="widthFix" alt=""/>
+    <view class="borrw-button ">
+      <view class="borrw-button-son still-button" bindtap="stillclick">
+        还书
+        </view>
+      <view class="borrw-button-son" bindtap="borrwclick">
+        借书
+        </view>
+    </view>
+  </view>
+
 </van-transition>
 <!-- 订单 -->
 <van-transition duration="400" show="{{ active=='order' }}" name="fade" custom-class="block">
   <!-- <order /> -->
   <view class="bookorderlist modelblock">
-    <van-tabs active="{{ listQuery.status }}" id="tabs" sticky ellipsis="{{false}}" >
+    <van-tabs active="{{ listQuery.status }}" id="ordertabs" sticky ellipsis="{{false}}">
       <van-tab title="{{item.name}}" wx:for="{{ordertypelist}}" name="{{item.id}}">
         <!-- 列表 -->
         <view class="orderlist">
-          <block wx:for="{{10}}" class="">
-          <BookModel book="item" />
-        </block>
+          <block wx:for="{{HotBookList}}" class="">
+            <BookModel book="{{item}}" />
+          </block>
         </view>
       </van-tab>
     </van-tabs>
@@ -30,7 +45,7 @@
 </van-transition>
 <!-- 个人中心 -->
 <van-transition duration="400" show="{{ active=='friends' }}" name="fade" custom-class="block">
-  <morepage />
+  <morepage userInfo="{{userInfo}}" />
 </van-transition>
 
 

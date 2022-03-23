@@ -1,0 +1,11 @@
+<view class="collect">
+  <block wx:if="{{list.length>0}}">
+  <block wx:for="{{list}}" wx:key="index">
+    <BookModel book="{{item}}"/>
+  </block>
+  <view class="ismore" hidden="{{ismore}}">暂无更多</view>
+</block>
+<block wx:else>
+  <van-empty description="暂无数据" />
+</block>
+</view>

@@ -1,13 +1,15 @@
-page{
+page {
   --grid-item-content-background-color: #F6F6F6;
-  --grid-item-content-padding:5rpx 5rpx;
+  --grid-item-content-padding: 5rpx 5rpx;
 }
-.type{
- /* background: #; */
- height: 100%;
- padding-top: 20rpx;
+
+.type {
+  /* background: #; */
+  height: 100%;
+  padding-top: 20rpx;
 }
-.calssstyle{
+
+.calssstyle {
   background: #fff;
   width: 100%;
   height: 100%;
@@ -15,16 +17,49 @@ page{
   padding: 10rpx;
   font-size: 24rpx;
 }
-.griditem{
+
+.griditem {
   background: #F6F6F6;
   text-align: center;
 }
-.title{
+
+.title {
   font-size: 26rpx;
   font-weight: 600;
 }
-.desc{
+
+.desc {
   font-size: 24rpx;
   color: #807e7e;
   padding: 10rpx 0;
+}
+
+.imglist {
+  width: 50%;
+  height: 90px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.imagestyle {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+.imagestyle0{
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+}
+.imagestyle1{
+  left: -40rpx;
+  height: 90%;
+  margin-top: 5%;
+}
+.imagestyle2{
+  height: 90%;
+  right: -26px;
+  margin-top: 5%;
 }

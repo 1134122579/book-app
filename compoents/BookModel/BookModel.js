@@ -8,7 +8,7 @@ Component({
       type:Object,
       value:{},
       observer(newVal, oldVal, changePath){
-        newVal['title']=newVal?.title||newVal['book_name']
+        newVal['title']=newVal?.title||newVal?.book_name
         this.setData({
           bookinfo:newVal
         })
@@ -29,9 +29,9 @@ Component({
    */
   methods: {
     gobookdetail(){
-      let {book}=this.data
+      let {bookinfo}=this.data
       wx.navigateTo({
-        url: '/pages/bookdetail/bookdetail?id='+book.id,
+        url: '/pages/bookdetail/bookdetail?id='+bookinfo.id,
       })
         },
   }

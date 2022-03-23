@@ -1,0 +1,41 @@
+/* pages/recharge/recharge.wxss */
+.price{
+  padding: 10rpx;
+}
+.price-input{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10rpx;
+  background: #ffffff;
+}
+.pricelist{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.price-block{
+  width: 23%;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  background: #ffffff;
+  margin-top: 18rpx;
+  border-radius: 60rpx;
+  flex-shrink: 0;
+}
+.peice-button{
+  text-align: center;
+  font-size: 20px;
+  background: #ED6925;
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 60%;
+  margin: 30rpx auto;
+  border-radius: 80rpx;
+  color: #ffffff;
+}
+.price-reido{
+  background: #ED6925;
+  color: #ffffff;
+}

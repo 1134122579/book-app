@@ -1,13 +1,27 @@
 var appInst = getApp();
 
-Page({
+Component({
+  properties: {
+    userInfo: {
+      type: Object,
+      value: {},
+      observer(newV, oldV) {
+        console.log(newV)
+        if (newV.is_admin == 1) {
+          powerlist.push("admin");
+          this.setData({
+            powerlist,
+          });
+        }
+      },
+    },
+  },
   /**
    * 页面的初始数据
    */
   data: {
-    powerlist: ["user"],
+    powerlist: ["user", "admin"],
     navHeight: appInst.globalData.navHeight,
-    userInfo: null,
     list: [
       {
         title: "店长管理",
@@ -18,8 +32,8 @@ Page({
         isborder: false,
         marginTop: "marginTop",
         is_power: "admin",
-        isLink:false,
-        isbutton:false
+        isLink: false,
+        isbutton: false,
       },
       {
         title: "客流统计",
@@ -30,33 +44,44 @@ Page({
         isborder: false,
         marginTop: "",
         is_power: "admin",
-        isLink:false,
-        isbutton:false
+        isLink: false,
+        isbutton: false,
       },
       {
-        title: "借阅记录",
+        title: "收藏记录",
         icon: "coupon-o",
-        to: "../../pages/exchangpage/exchangpage",
+        to: "../../pages/collect/collect",
         linktype: "navigateTo",
         value: "",
         isborder: false,
         marginTop: "marginTop",
-        is_power: "user",
-        isLink:false,
-        isbutton:false
-
+        is_power: "user", //权限
+        isLink: false,
+        isbutton: false,
       },
+      // {
+      //   title: "认证",
+      //   icon: "award-o",
+      //   to: "../../pages/authpage/authpage",
+      //   linktype: "navigateTo",
+      //   value: "",
+      //   isborder: false,
+      //   marginTop: "",
+      //   is_power: "user",
+      //   isLink: false,
+      //   isbutton: false,
+      // },
       {
-        title: "会员信息",
+        title: "充值中心",
         icon: "vip-card-o",
-        to: "../../pages/vipchagepage/vipchagepage",
+        to: "../../pages/recharge/recharge",
         linktype: "navigateTo",
         value: "",
         isborder: false,
         marginTop: "",
         is_power: "user",
-        isLink:false,
-        isbutton:false
+        isLink: false,
+        isbutton: false,
       },
       {
         title: "充值记录",
@@ -67,113 +92,34 @@ Page({
         isborder: false,
         marginTop: "",
         is_power: "user",
-        isLink:false,
-        isbutton:false
+        isLink: false,
+        isbutton: false,
       },
-      {
-        title: "会员协议",
-        icon: "records",
-        to: "../../pages/setting/setting",
-        linktype: "navigateTo",
-        value: "",
-        isborder: false,
-        marginTop: "marginTop",
-        is_power: "user",
-        isLink:false,
-        isbutton:false
-      },
-      {
-        title: "设置",
-        icon: "setting-o",
-        to: "../../pages/userInfo/userInfo",
-        linktype: "navigateTo",
-        value: "",
-        isborder: false,
-        marginTop: "marginTop",
-        isLink:false,
-        isbutton:false
-      },
+      // {
+      //   title: "会员协议",
+      //   icon: "records",
+      //   to: "../../pages/setting/setting",
+      //   linktype: "navigateTo",
+      //   value: "",
+      //   isborder: false,
+      //   marginTop: "marginTop",
+      //   is_power: "user",
+      //   isLink: false,
+      //   isbutton: false,
+      // },
     ],
   },
-  goVip() {
-    wx.navigateTo({
-      url: "/pages/vipdetail/vipdetail",
-    });
-  },
-  onuserInfo() {
-    wx.navigateTo({
-      url: '/pages/userInfo/userInfo',
-    })
-  },
-  oncarClick() {
-    wx.navigateTo({
-      url: '/pages/cardList/cardList',
-    })
-  },
-  oncardClick() {
-    wx.navigateTo({
-      url: '/pages/couponpage/couponpage',
-    })
-  },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {},
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    appInst.tabbershow(this, 4);
-    let {
-      powerlist
-    } = this.data;
-    let {
-      is_admin
-    } = appInst.globalData.userInfo;
-    if (is_admin == 1) {
-      powerlist.push("admin");
-      this.setData({
-        powerlist,
+  methods: {
+    goVip() {
+      wx.navigateTo({
+        url: "/pages/vipdetail/vipdetail",
       });
-    }
-    // console.log('windowHeight', appInst.globalData.userInfo)
-    console.log("userInfo",appInst.globalData.userInfo)
-    this.setData({
-      userInfo: appInst.globalData.userInfo,
-      navHeight: appInst.globalData.navHeight,
-    })
+    },
+    onuserInfo() {
+      wx.navigateTo({
+        url: "/pages/userInfo/userInfo",
+      });
+    },
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {},
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {},
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {},
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {},
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {},
 });

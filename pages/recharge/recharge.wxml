@@ -1,0 +1,12 @@
+<view class="price">
+  <van-field model:value="{{ recharge_price }}" clearable label="充值金额" type="number" placeholder="请输入充值金额" size="large" />
+  <view class="pricelist">
+    <block wx:for="{{list}}" wx:key="index">
+      <view class="price-block {{item==recharge_price&&'price-reido'}}" data-peice="{{item}}" bindtap="pricereido">{{item}}</view>
+    </block>
+  </view>
+
+  <view class="peice-button" bindtap="onprice">
+    立即充值
+  </view>
+</view>

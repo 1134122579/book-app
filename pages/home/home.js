@@ -1,43 +1,44 @@
 // pages/home/home.js
-import storage from '../../utils/cache'
-import Api from '../../api/index'
+import storage from "../../utils/cache";
+import Api from "../../api/index";
 
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    active:'home',
+    active: "home",
     tabbarList: [
       {
-        id:1,
+        id: 1,
         name: "首页",
-        icon:'/assets/icon/home.png',
-        active_icon:'/assets/icon/homeac.png',
-        to:"home"
+        icon: "/assets/icon/home.png",
+        active_icon: "/assets/icon/homeac.png",
+        to: "home",
       },
       {
-        id:2,
+        id: 2,
         name: "借阅",
-        icon:'/assets/icon/jy.png',
-        active_icon:'/assets/icon/jyac.png',
-        to:"class"
+        icon: "/assets/icon/jy.png",
+        active_icon: "/assets/icon/jyac.png",
+        to: "class",
       },
       {
-        id:3,
+        id: 3,
         name: "订单",
-        icon:'/assets/icon/order.png',
-        active_icon:'/assets/icon/orderac.png',
-        to:"order"
-      },  {
-        id:4,
+        icon: "/assets/icon/order.png",
+        active_icon: "/assets/icon/orderac.png",
+        to: "order",
+      },
+      {
+        id: 4,
         name: "我的",
-        icon:'/assets/icon/my1.png',
-        active_icon:'/assets/icon/myac1.png',
-        to:"friends"
+        icon: "/assets/icon/my1.png",
+        active_icon: "/assets/icon/myac1.png",
+        to: "friends",
       },
     ],
-    order_active:'',
+    order_active: "",
     ordertypelist: [
       {
         id: 1,
@@ -48,59 +49,106 @@ Page({
         name: "已还",
       },
     ],
-    listQuery:{
-      page:1,
-      status:1
+    listQuery: {
+      page: 1,
+      status: 1,
     },
-    HotBookList:[],
-    NewBookList:[]
-
+    HotBookList: [],
+    NewBookList: [],
+    userInfo:{}
   },
+  // 切换
   onChange(event) {
-    if(storage.getToken()){
+    if (storage.getToken()) {
+      switch (event.detail) {
+        case "order":
+          this.getUserOrder();
+          break;
+        case "friends":
+          this.getUserInfo();
+          break;
+        default:
+          break;
+      }
       this.setData({ active: event.detail });
-    }else{
+    } else {
       wx.reLaunch({
-        url: '/pages/login/login',
-      })
+        url: "/pages/login/login",
+      });
     }
- },
-//  获取订单
-getUserOrder(){
-  let {listQuery}=this.data
-  Api.getUserOrder(listQuery).then(res=>{
+  },
+  //获取用户信息
+  getUserInfo(){
+    Api.getUserInfo().then(res=>{
       this.setData({
-        orderList:res
+        userInfo:res
       })
-  })
-},
-//  获取图书分类/
- getBookClass(){
-  Api.getBookClass().then(res=>{
-    console.log(res)
-  })
-},
-// 热门
-getHotBookList(){
-  Api.getHotBookList().then(res=>{
-    this.setData({
-      HotBookList:res
+      storage.setUserInfo(res)
     })
-  })
-},
-// 最新
-getNewBookList(){
-  Api.getNewBookList().then(res=>{
-    this.setData({
-      NewBookList:res
-    })
-  })
-},
+  },
+
+
+  //  还书
+  stillclick() {
+    console.log("还书 扫码");
+    wx.scanCode({
+      onlyFromCamera: true,
+      success: (result) => {
+        console.log("还书 扫码", result);
+      },
+      fail: (res) => {},
+      complete: (res) => {},
+    });
+  },
+  //  借书
+  borrwclick() {
+    console.log("借书 扫码");
+    wx.scanCode({
+      onlyFromCamera: true,
+      success: (result) => {
+        console.log("借书 扫码", result);
+      },
+      fail: (res) => {},
+      complete: (res) => {},
+    });
+  },
+  //  获取订单
+  getUserOrder() {
+    let { listQuery } = this.data;
+    Api.getUserOrder(listQuery).then((res) => {
+      this.setData({
+        orderList: res,
+      });
+      this.selectComponent("#ordertabs").resize();
+    });
+  },
+  //  获取图书分类/
+  getBookClass() {
+    Api.getBookClass().then((res) => {
+      console.log(res);
+    });
+  },
+  // 热门
+  getHotBookList() {
+    Api.getHotBookList().then((res) => {
+      this.setData({
+        HotBookList: res,
+      });
+    });
+  },
+  // 最新
+  getNewBookList() {
+    Api.getNewBookList().then((res) => {
+      this.setData({
+        NewBookList: res,
+      });
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getBookClass()
+    this.getBookClass();
   },
 
   /**
@@ -112,10 +160,11 @@ getNewBookList(){
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getUserOrder()
-    this.getHotBookList()
-    this.getNewBookList()
-    this.selectComponent('#tabs').resize();
+    this.getHotBookList();
+    this.getNewBookList();
+    if(storage.getToken()){
+      this.getUserInfo()
+    }
   },
 
   /**

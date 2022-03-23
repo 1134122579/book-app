@@ -32,6 +32,9 @@ Component({
    */
   methods:{
     gomore(){
+      wx.showLoading({
+        title: '加载中..',
+      })
       wx.navigateTo({
         url: '/pages/bookclass/bookclass',
       })
@@ -40,6 +43,9 @@ Component({
   
     },
     gosearch(){
+      wx.showLoading({
+        title: '加载中..',
+      })
       wx.navigateTo({
         url: '/pages/searchpage/searchpage',
       })
@@ -47,6 +53,9 @@ Component({
     gobookdetail(event){
       console.log(event)
       let {item}=event.currentTarget.dataset
+         wx.showLoading({
+        title: '加载中..',
+      })
       wx.navigateTo({
         url: `/pages/bookdetail/bookdetail?id=${item.id}`,
       })

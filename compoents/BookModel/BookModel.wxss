@@ -6,7 +6,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  margin-top: 46rpx;
+  margin-top: 40rpx;
   height: 280rpx;
 }
 
@@ -36,13 +36,14 @@
 }
 
 .now_chunk_title {
-  font-weight: 600;
-  font-size: 30rpx;
+  /* font-weight: 600; */
+  font-size: 32rpx;
 }
 
 .now_chunk_desc {
   color: #ccc;
-  font-size: 24rpx;
+  font-size: 28rpx;
+  margin-top: 10rpx;
 }
 /* 书本记录 */
 .now_chunk_{

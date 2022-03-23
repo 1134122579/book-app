@@ -1,10 +1,48 @@
 /* pages/home/home.wxss */
-.modelblock{
+.modelblock {
   width: 100%;
   height: 100%;
 }
+
 /* 订单 */
-.orderlist{
+.orderlist {
   padding: 40px 0;
   box-sizing: border-box;
+}
+
+/* 借阅 */
+.borrw {
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 20px 40px;
+  background: #FFFFFF;
+}
+
+.borrw-title {
+  text-align: left;
+  width: 100%;
+  font-size: 26px;
+}
+
+.borrw-button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.borrw-button-son {
+  border-radius: 40px;
+  background: #FADA5B;
+  width: 48%;
+  height: 50px;
+  line-height: 50px;
+  color: #000;
+  text-align: center;
+  box-sizing: border-box;
+}
+.still-button{
+  background: #fff;
+  border: 1px solid #ccc;
 }

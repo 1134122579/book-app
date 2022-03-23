@@ -144,4 +144,22 @@ export default {
       isThree: false,
     });
   },
+  authUserInfo(params) {
+    return fly({
+      url: `authUserInfo`,
+      method: "post",
+      params,
+      loading: true,
+      isThree: false,
+    });
+  },
+  rechargeOrder(params) {
+    return fly({
+      url: `rechargeOrder`,
+      method: "post",
+      params,
+      loading: true,
+      isThree: false,
+    });
+  },
 };

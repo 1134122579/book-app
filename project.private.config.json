@@ -23,6 +23,27 @@
           "name": "详情",
           "pathName": "pages/bookdetail/bookdetail",
           "query": "id=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "用户信息",
+          "pathName": "pages/userInfo/userInfo",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "充值中心",
+          "pathName": "pages/recharge/recharge",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "分类",
+          "pathName": "pages/bookclass/bookclass",
+          "query": "",
           "scene": null,
           "launchMode": "default"
         }
