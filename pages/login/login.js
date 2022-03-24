@@ -79,8 +79,7 @@ Page({
             })
             App.globalData.userInfo=res
             App.globalData.is_login=false
-    
-            wx.switchTab({
+            wx.reLaunch({
               url: '/pages/home/home',
             })
           })

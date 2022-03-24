@@ -6,11 +6,11 @@
 		<!-- <image class="header_bg" src="../../images/anoutbg.png"></image> -->
 		<view class="user_content">
 			<view class="user_content_t" bindtap="onuserInfo">
-				<van-image round width="70" height="70" src="{{userInfo.photo}}"></van-image>
+				<van-image round width="70" height="70" src="{{userInfo.headimgurl}}"></van-image>
 				<view class="userName ">
-				{{userInfo.name}}
+				{{userInfo.is_auth==1?userInfo.name:'未认证'}}
 				</view>
-				<iconfont size="20" name="{{userInfo.name?'Vrenzheng-cg':'Vrenzheng'}}"></iconfont> 
+				<iconfont size="20" name="{{userInfo.is_auth==1?'Vrenzheng-cg':'Vrenzheng'}}"></iconfont> 
 				<van-icon style="margin-left: 14rpx;" name="edit" size="20" />
 			</view>
 		</view>

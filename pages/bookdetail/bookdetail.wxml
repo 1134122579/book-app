@@ -23,9 +23,9 @@
       </view>
 
       <view class="bookrate">
-        <text class="now_chunk_one">{{bookdetail.like_num}}人借过</text>
-        <text class="now_chunk_one">{{bookdetail.collect_num}}人收藏</text>
-        <text class="now_chunk_one">{{bookdetail.pv_num}}浏览</text>
+        <text class="now_chunk_one"> {{bookdetail.like_num}} 点赞 </text>
+        <text class="now_chunk_one"> {{bookdetail.collect_num}} 收藏 </text>
+        <text class="now_chunk_one"> {{bookdetail.pv_num}} 浏览 </text>
       </view>
 
     </view>
@@ -51,29 +51,41 @@
   <!-- 评论 -->
   <view class="comment">
     <view class="comment_title">
-      全部书评 （10）
+      全部书评 （{{bookdetail.pl_num>99?'99+':bookdetail.pl_num}}）
     </view>
     <view class="comment_list">
-      <view class="commentBlock" wx:for="{{10}}">
+    <block wx:if="{{commentlist.length>0}}">
+      <view class="commentBlock" wx:for="{{commentlist}}" wx:key="index">
         <view class="comment_header">
           <view class="header_image">
+          <image src="{{item.headimgurl}}" style="width:100%;height:100%"></image>
           </view>
           <view class="user_name">
-            用户名字
+            {{item.nicaname}}
           </view>
           <!-- 评分 -->
           <view class="user_rate">
-            <van-rate value="{{ value }}" allow-half void-icon="star" void-color="#eee" size="24rpx" />
+            <!-- <van-rate value="{{ value }}" allow-half void-icon="star" void-color="#eee" size="24rpx" /> -->
           </view>
         </view>
 
         <view class="comment-content">
-          这本书很不错
+          <view class="comment-text">
+            {{item.content}}</view>
+          <view class="comment-like flexcolumn" data-comment="{{item}}" bindtap="zanBookComment">
+            <van-icon name="{{item.is_zan==1?'like':'like-o'}}" size="18" />
+            <view>{{item.zan_num}}</view>
+          </view>
         </view>
         <view class="comment-time">
-          2022-03-05
+          {{item.create_time}}
         </view>
       </view>
+      <view class="ismore" hidden="{{!ismorelist}}">暂无更多</view>
+    </block>
+    <block wx:else>
+      <van-empty description="暂无评论" />
+    </block>
     </view>
   </view>
 
@@ -81,11 +93,23 @@
   <view>
     <van-goods-action>
       <van-goods-action-icon icon="share-o" class="actioiconn" text="分享" open-type="share" />
-      <van-goods-action-icon icon="comment-o" class="actioiconn" text="评论" info="5" />
-      <van-goods-action-icon icon="{{bookdetail.is_collect==1?'like':'like-o'}}" bind:click="oncollect" class="actioiconn" text="收藏" />
+      <van-goods-action-icon icon="comment-o" bind:click="oncomment" class="actioiconn" text="评论" info="{{bookdetail.pl_num>99?'99+':bookdetail.pl_num}}" />
+      <van-goods-action-icon icon="{{bookdetail.is_like==1?'like':'like-o'}}" bind:click="onlike" class="actioiconn" text="点赞" />
+      <van-goods-action-icon icon="{{bookdetail.is_collect==1?'star':'star-o'}}" bind:click="oncollect" class="actioiconn" text="收藏" />
       <!-- <van-goods-action-button color="#be99ff" text="加入购物车" type="warning" /> -->
-      <van-goods-action-button color="#F7DA65" size="small" text="{{isbookorder?'已申请借书':'借书'}}" 
-      disabled="{{isbookorder}}" bind:click="payRentBookOrder" />
+      <van-goods-action-button color="#F7DA65" size="small" text="{{isbookorder?'已申请借书':'借书'}}" disabled="{{isbookorder}}" bind:click="payRentBookOrder" />
     </van-goods-action>
   </view>
 </view>
+<!-- 评论 -->
+<van-popup show="{{ iscommentshow }}" bind:close="onClose" round>
+  <view class="comment-poup ">
+    <view class="pushcomment comment-poup-title ">
+      评论
+    </view>
+    <van-field style="flex:1" model:value="{{ commentcontent }}" label="评论" type="textarea" placeholder="请输入评论" autosize="{{autosize}}" required clearable maxlength="{{50}}" show-word-limit="{{true}}" />
+    <view class="pushcomment pushbutton" bindtap="onpushmkcomment">
+      提交
+    </view>
+  </view>
+</van-popup>

@@ -1,4 +1,4 @@
-/* pages/bookdetail/bookdetail.wxss */
+      /* pages/bookdetail/bookdetail.wxss */
 .book {
   background: #F5F5F5;
   box-sizing: border-box;
@@ -9,10 +9,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 280rpx;
+  min-height: 280rpx;
   background: #fff;
   box-sizing: border-box;
-  padding: 0 20rpx;
+  padding: 10rpx 20rpx;
 }
 
 .cover {
@@ -35,6 +35,9 @@
 .book_title {
   font-size: 28rpx;
   font-weight: 600;
+  overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;
 
 }
 
@@ -53,15 +56,14 @@
 
 /* 分类 */
 .type {
-  margin-top: 10rpx;
+  /* margin-top: 10rpx; */
 }
 
 .booktexrdesc {
-  margin-top: 10rpx;
+  margin-top: 20rpx;
   background: #fff;
   box-sizing: border-box;
-  padding: 20rpx 40rpx;
-
+  padding: 20rpx 30rpx;
 }
 
 .textcontent {
@@ -81,14 +83,14 @@
 }
 
 .actioiconn {
-  width: 140rpx;
+  width: 110rpx;
 }
 
 /* 书本评论 */
 .comment {
   background: #fff;
   padding: 20rpx;
-  margin-top: 10rpx;
+  margin-top: 20rpx;
 }
 
 .comment_title {
@@ -116,19 +118,61 @@
   height: 80rpx;
   border-radius: 50%;
   overflow: hidden;
-  background: chartreuse;
-
 }
 
 .user_name {
   margin: 0 20rpx;
   font-weight: 600;
 }
-
+.comment-text{
+  font-size: 24rpx;
+  line-height: 1.5;
+  letter-spacing: 2rpx;
+}
 .comment-content {
-  padding: 20rpx;
+  padding:0 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.comment-like{
+  padding: 0 10rpx;
 }
 
 .comment-time {
   color: #ccc;
+  padding:10rpx 20rpx;
+}
+.now_chunk_one{
+  padding-right:10rpx;
+}
+.comment-poup{
+  width: 80vw;
+  height: 60vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.pushcomment{
+  text-align: center;
+  width: 100%;
+  font-size: 32rpx;
+  padding: 18rpx;
+  box-sizing: border-box;
+}
+.pushbutton{
+  width: 80%;
+  /* height: 60rpx; */
+  background: #F7DA65;
+  color: #fff;
+  margin: 10px auto;
+  border-radius: 60rpx;
+}
+
+/* 暂无更多 */
+.ismore{
+text-align: center;
+font-size: 22rpx;
+padding: 20rpx;
+color: #ccc;
 }

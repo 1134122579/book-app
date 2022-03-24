@@ -22,19 +22,24 @@
         </view>
     </view>
   </view>
-
 </van-transition>
 <!-- 订单 -->
 <van-transition duration="400" show="{{ active=='order' }}" name="fade" custom-class="block">
   <!-- <order /> -->
   <view class="bookorderlist modelblock">
-    <van-tabs active="{{ listQuery.status }}" id="ordertabs" sticky ellipsis="{{false}}">
-      <van-tab title="{{item.name}}" wx:for="{{ordertypelist}}" name="{{item.id}}">
+    <van-tabs active="{{ listQuery.status }}" id="ordertabs" bind:change="orderChange" sticky ellipsis="{{false}}">
+      <van-tab title="{{item.name}}" wx:for="{{ordertypelist}}" wx:key="index" name="{{item.id}}">
         <!-- 列表 -->
         <view class="orderlist">
-          <block wx:for="{{HotBookList}}" class="">
+          <block wx:if="{{orderList.length>0}}">
+          <block wx:for="{{orderList}}" class="">
             <BookModel book="{{item}}" />
           </block>
+          <view hidden="{{!isordermore}}" class="isordermore">暂无更多</view>
+        </block>
+        <block wx:else>
+          <van-empty description="暂无数据" />
+        </block>
         </view>
       </van-tab>
     </van-tabs>

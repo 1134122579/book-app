@@ -9,19 +9,28 @@
         {{bookinfo.title}}
       </view>
       <!-- 评星 -->
-      <view class="now_chunk_rate now_chunk_desc">
+      <view class="now_chunk_rate now_chunk_desc"  >
         <van-rate value="{{ bookinfo.stars }}" size="24rpx" readonly  color="#FFD21E" void-color="#ccc" />
       </view>
-      <view class="now_chunk_desc">
+      <view wx:if="{{bookinfo.author}}"  class="now_chunk_desc">
         {{bookinfo.author}}
       </view>
-      <view class="now_chunk_desc">
+      <view wx:if="{{bookinfo.price}}" class="now_chunk_desc">
+       ￥{{bookinfo.price}}
+      </view>
+      <view wx:if="{{bookinfo.order_no}}" class="now_chunk_desc">
+        {{bookinfo.order_no}}
+      </view>
+      <view wx:if="{{bookinfo.create_time}}" class="now_chunk_desc">
+        {{bookinfo.create_time}}
+      </view>
+      <view class="now_chunk_desc" wx:if="{{bookinfo.desc}}">
         {{bookinfo.desc}}
       </view>
     </view>
-    <view class="now_chunk_">
-      <text class="now_chunk_one">{{bookinfo.like_num}}人借过</text>
-      <text class="now_chunk_one">{{bookinfo.collect_num}}人收藏</text>
+    <view class="now_chunk_" wx:if="{{bookinfo.like_num||bookinfo.collect_num||bookinfo.pv_num}}">
+      <text class="now_chunk_one">{{bookinfo.like_num}}点赞</text>
+      <text class="now_chunk_one">{{bookinfo.collect_num}}收藏</text>
       <text class="now_chunk_one">{{bookinfo.pv_num}}浏览</text>
     </view>
   </view>

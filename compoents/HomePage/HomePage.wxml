@@ -23,7 +23,7 @@
       <view class="type_list">
         <view class="chunk flexcolumn" wx:for="{{NewBookList}}" wx:key="index" data-item="{{item}}" bindtap="gobookdetail">
           <view class="imagestyle">
-            <image class="image" mode="widthFix" src="{{item.cover}}"></image>
+            <image class="image" mode="aspectFill" src="{{item.cover}}"></image>
           </view>
           <view class="chunk_title">
             {{item.book_name}}</view>
@@ -32,7 +32,6 @@
         </view>
       </view>
     </view>
-
   </block>
   <!-- 热门书籍 -->
   <block>

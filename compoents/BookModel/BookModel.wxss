@@ -6,13 +6,13 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  margin-top: 40rpx;
-  height: 280rpx;
+  margin-top: 80rpx;
+  height: 240rpx;
 }
 
 .now_imagestyle {
   margin-left: 30rpx;
-  margin-top: -20rpx;
+  margin-top: -40rpx;
   height: 260rpx;
   overflow: hidden;
   border-radius: 8rpx;

@@ -46,3 +46,9 @@
   background: #fff;
   border: 1px solid #ccc;
 }
+.isordermore{
+  text-align: center;
+  font-size: 22rpx;
+  color:#ccc;
+  padding: 20rpx;
+}

@@ -56,7 +56,7 @@ page {
 .chunk {
   width: 210rpx;
   font-size: 26rpx;
-  margin-right: 10rpx;
+  margin-right: 30rpx;
   flex-shrink: 0;
   line-height: 1.5;
   text-align: left;
@@ -64,8 +64,8 @@ page {
 
 .imagestyle {
   width: 200rpx;
-  min-height: 260rpx;
-  max-height: 280rpx;
+ /* height: 260rpx; */
+ height: 280rpx;
   border-radius: 8rpx;
   background: #fff;
   overflow: hidden;
@@ -100,6 +100,6 @@ page {
 
 /* 热门书籍 */
 .now_list {
-  padding: 20rpx 0;
+  padding: 20rpx 20rpx;
   box-sizing: border-box;
 }

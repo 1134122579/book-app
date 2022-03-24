@@ -162,4 +162,62 @@ export default {
       isThree: false,
     });
   },
+  scanQrcode(params) {
+    return fly({
+      url: `scanQrcode`,
+      method: "post",
+      params,
+      loading: true,
+      isThree: false,
+    });
+  },
+  cancelZanBook(params) {
+    return fly({
+      url: `cancelZanBook`,
+      method: "post",
+      params,
+      loading: true,
+      isThree: false,
+    });
+  },
+  setBookPv(params) {
+    return fly({
+      url: `setBookPv`,
+      method: "get",
+      params,
+      loading: true,
+      isThree: false,
+    });
+  },
+  comment_book(params) {
+    return fly({
+      url: `comment_book`,
+      method: "post",
+      params,
+      loading: false,
+      isThree: false,
+    });
+  },
+  getBookComment(params) {
+    return fly({
+      url: `getBookComment`,
+      method: "post",
+      params,
+      loading: false,
+      isThree: false,
+    });
+  },
+  zanBookComment(params) {
+    return fly({
+      url: `zanBookComment`,
+      method: "post",
+      params,
+      loading: false,
+      isThree: false,
+    });
+  },
+  
+  
+  
+  
 };

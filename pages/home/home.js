@@ -55,7 +55,7 @@ Page({
     },
     HotBookList: [],
     NewBookList: [],
-    userInfo:{}
+    userInfo: {},
   },
   // 切换
   onChange(event) {
@@ -77,20 +77,30 @@ Page({
       });
     }
   },
-  //获取用户信息
-  getUserInfo(){
-    Api.getUserInfo().then(res=>{
-      this.setData({
-        userInfo:res
-      })
-      storage.setUserInfo(res)
-    })
+  orderChange(event) {
+    console.log(event, 123456);
+    this.setData({
+      "listQuery.status": event.detail.name,
+    });
+    this.getUserOrder();
   },
-
+  //获取用户信息
+  getUserInfo() {
+    Api.getUserInfo().then((res) => {
+      this.setData({
+        userInfo: res,
+      });
+      storage.setUserInfo(res);
+    });
+  },
 
   //  还书
   stillclick() {
     console.log("还书 扫码");
+    wx.showToast({
+      title: '暂未开发',
+    })
+    return
     wx.scanCode({
       onlyFromCamera: true,
       success: (result) => {
@@ -103,22 +113,53 @@ Page({
   //  借书
   borrwclick() {
     console.log("借书 扫码");
+    if(!storage.getToken()){
+        wx.navigateTo({
+          url: '/pages/login/login',
+        })
+        return
+    }
     wx.scanCode({
       onlyFromCamera: true,
-      success: (result) => {
-        console.log("借书 扫码", result);
+      success: (data) => {
+        console.log("借书 扫码", data);
+        let {result}=data
+      let {user_id}=  storage.getUserInfo()
+        Api.scanQrcode({user_id,result}).then(res=>{
+          wx.showToast({
+            title: '借阅成功',
+          })
+        })
       },
-      fail: (res) => {},
+      fail: (res) => {
+        wx.showToast({
+          title: '请从新扫码',
+          icon:'none'
+        })
+      },
       complete: (res) => {},
     });
   },
+  onorderpull(){
+   this.data.listQuery.page++
+   this.getUserOrder()
+  },
   //  获取订单
   getUserOrder() {
-    let { listQuery } = this.data;
+    let { listQuery ,orderList} = this.data;
     Api.getUserOrder(listQuery).then((res) => {
       this.setData({
-        orderList: res,
-      });
+        isordermore:res.length>0
+      })
+      if(listQuery.page==1){
+        this.setData({
+          orderList: res,
+        });
+      }else{
+        this.setData({
+          orderList:orderList.concat(res) ,
+        });
+      }
       this.selectComponent("#ordertabs").resize();
     });
   },
@@ -131,6 +172,11 @@ Page({
   // 热门
   getHotBookList() {
     Api.getHotBookList().then((res) => {
+      res=res.slice(0,5)
+      res=res.map(item=>{
+        item['create_time']=''
+        return item
+      })
       this.setData({
         HotBookList: res,
       });
@@ -162,8 +208,8 @@ Page({
   onShow: function () {
     this.getHotBookList();
     this.getNewBookList();
-    if(storage.getToken()){
-      this.getUserInfo()
+    if (storage.getToken()) {
+      this.getUserInfo();
     }
   },
 
@@ -185,7 +231,12 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {},
+  onReachBottom: function () {
+    let {active}=this.data
+    if(active=='order'){
+      this.onorderpull()
+    }
+  },
 
   /**
    * 用户点击右上角分享

@@ -21,6 +21,7 @@ Page({
   },
 //  获取图书分类/
 getBookClass(){
+  let {list}=this.data
   Api.getBookClass().then(res=>{
     this.setData({
       list:res

@@ -31,7 +31,7 @@ fly.interceptors.request.use((request) => {
     // request.headers['sign'] = encrypt(new Date().getTime())
     request.headers["sign"] = 123;
     // 获取token
-    storage.setToken('0559f388a67aeb400124cd12052dcd65dc15f19c5fb082f8e3bbf0b2bb95239eb31a66b89ee790a140aa8e24d1a4f6906ea7545adfd6b36805ec722d59a6c5d71bbbcc823565e86b9a7e590d4dc76737')
+    // storage.setToken('0559f388a67aeb400124cd12052dcd65dc15f19c5fb082f8e3bbf0b2bb95239eb31a66b89ee790a140aa8e24d1a4f6906ea7545adfd6b36805ec722d59a6c5d71bbbcc823565e86b9a7e590d4dc76737')
     let token = storage.getToken()
     if (token) {
       request.headers["access-user-token"] = token;
