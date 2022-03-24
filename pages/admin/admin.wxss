@@ -1,0 +1,7 @@
+/* pages/admin/admin.wxss */
+.isnulllist{
+  text-align: center;
+  color: #ccc;
+  font-size: 24rpx;
+  padding: 20rpx;
+}

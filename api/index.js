@@ -167,7 +167,7 @@ export default {
       url: `scanQrcode`,
       method: "post",
       params,
-      loading: true,
+      loading: false,
       isThree: false,
     });
   },
@@ -210,6 +210,25 @@ export default {
   zanBookComment(params) {
     return fly({
       url: `zanBookComment`,
+      method: "post",
+      params,
+      loading: false,
+      isThree: false,
+    });
+    
+  },
+  getUserRentOrder(params) {
+    return fly({
+      url: `getUserRentOrder`,
+      method: "post",
+      params,
+      loading: false,
+      isThree: false,
+    });
+  },
+  rentBook(params) {
+    return fly({
+      url: `rentBook`,
       method: "post",
       params,
       loading: false,

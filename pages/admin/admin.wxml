@@ -1,0 +1,10 @@
+<block wx:if="{{list.length>0}}">
+    <block wx:for="{{list}}" wx:key="index">
+        <BookadminModel book="{{item}}" bind:onpush="onpush" />
+    </block>
+    <view class="isnulllist" hidden="{{!isnulllist}}">暂无更多</view>
+
+</block>
+<block wx:else>
+    <van-empty description="暂无订单" />
+</block>

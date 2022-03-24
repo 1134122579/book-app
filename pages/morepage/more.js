@@ -26,7 +26,7 @@ Component({
       {
         title: "店长管理",
         icon: "shield-o",
-        to: "../../pages/scanpage/scanpage",
+        to: "../../pages/admin/admin",
         linktype: "navigateTo",
         value: "",
         isborder: false,

@@ -14,9 +14,9 @@
     </view>
     <image src="/assets/jy.png" mode="widthFix" alt=""/>
     <view class="borrw-button ">
-      <view class="borrw-button-son still-button" bindtap="stillclick">
+      <!-- <view class="borrw-button-son still-button" bindtap="stillclick">
         还书
-        </view>
+        </view> -->
       <view class="borrw-button-son" bindtap="borrwclick">
         借书
         </view>
@@ -33,7 +33,7 @@
         <view class="orderlist">
           <block wx:if="{{orderList.length>0}}">
           <block wx:for="{{orderList}}" class="">
-            <BookModel book="{{item}}" />
+            <BooknotModel book="{{item}}" />
           </block>
           <view hidden="{{!isordermore}}" class="isordermore">暂无更多</view>
         </block>

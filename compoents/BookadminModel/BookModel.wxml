@@ -1,0 +1,28 @@
+<view class="nowchunk " >
+  <view class="now_imagestyle" data-item="{{book}}" bindtap="gobookdetail">
+    <image class="image" mode="aspectFill"  src="{{book.cover}}"></image>
+  </view>
+  <!-- <image></image> -->
+  <view class="textStyle" data-item="{{book}}" bindtap="gobookdetail">
+    <view class="textStyle_top">
+      <view class="now_chunk_title">
+       {{bookinfo.title}}
+      </view>
+      <view class="now_chunk_desc">
+       客户： {{bookinfo.table_no}} 桌
+      </view>
+      <view class="now_chunk_desc">
+        书位： {{bookinfo.shelf_name}}  价格：￥{{bookinfo.price}}
+      </view>
+      <view wx:if="{{bookinfo.order_no}}" class="now_chunk_desc">
+        {{bookinfo.order_no}}
+      </view>
+      <view  class="now_chunk_desc">
+        {{bookinfo.create_time}}
+      </view>
+    </view>
+  </view>
+  <view  class="button" bindtap="onpush">
+    借出
+  </view>
+</view>

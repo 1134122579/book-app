@@ -8,7 +8,7 @@ Page({
    */
   data: {
     active: "home",
-    bookclasslist:[],
+    bookclasslist: [],
     tabbarList: [
       {
         id: 1,
@@ -43,11 +43,15 @@ Page({
     ordertypelist: [
       {
         id: 1,
-        name: "在借",
+        name: "已归还",
       },
       {
         id: 2,
-        name: "已还",
+        name: "已预订",
+      },
+      {
+        id: 3,
+        name: "借书中",
       },
     ],
     listQuery: {
@@ -99,9 +103,9 @@ Page({
   stillclick() {
     console.log("还书 扫码");
     wx.showToast({
-      title: '暂未开发',
-    })
-    return
+      title: "暂未开发",
+    });
+    return;
     wx.scanCode({
       onlyFromCamera: true,
       success: (result) => {
@@ -114,51 +118,53 @@ Page({
   //  借书
   borrwclick() {
     console.log("借书 扫码");
-    if(!storage.getToken()){
-        wx.navigateTo({
-          url: '/pages/login/login',
-        })
-        return
+    if (!storage.getToken()) {
+      wx.navigateTo({
+        url: "/pages/login/login",
+      });
+      return;
     }
     wx.scanCode({
       onlyFromCamera: true,
       success: (data) => {
         console.log("借书 扫码", data);
-        let {result}=data
-      let {user_id}=  storage.getUserInfo()
-        Api.scanQrcode({user_id,result}).then(res=>{
+        let { result: brcode } = data;
+        let { user_id } = storage.getUserInfo();
+        Api.scanQrcode({ user_id, brcode }).then((res) => {
           wx.showToast({
-            title: '借阅成功',
-          })
-        })
+            title: "借阅成功",
+            duration: 3000,
+          });
+        });
       },
       fail: (res) => {
         wx.showToast({
-          title: '请从新扫码',
-          icon:'none'
-        })
+          title: "请从新扫码",
+          icon: "none",
+          duration: 3000,
+        });
       },
       complete: (res) => {},
     });
   },
-  onorderpull(){
-   this.data.listQuery.page++
-   this.getUserOrder()
+  onorderpull() {
+    this.data.listQuery.page++;
+    this.getUserOrder();
   },
   //  获取订单
   getUserOrder() {
-    let { listQuery ,orderList} = this.data;
+    let { listQuery, orderList } = this.data;
     Api.getUserOrder(listQuery).then((res) => {
       this.setData({
-        isordermore:res.length>0
-      })
-      if(listQuery.page==1){
+        isordermore: res.length > 0,
+      });
+      if (listQuery.page == 1) {
         this.setData({
           orderList: res,
         });
-      }else{
+      } else {
         this.setData({
-          orderList:orderList.concat(res) ,
+          orderList: orderList.concat(res),
         });
       }
       this.selectComponent("#ordertabs").resize();
@@ -167,20 +173,20 @@ Page({
   //  获取图书分类/
   getBookClass() {
     Api.getBookClass().then((res) => {
-      res=res.slice(0,6)
+      res = res.slice(0, 6);
       this.setData({
-        bookclasslist:res
-      })
+        bookclasslist: res,
+      });
     });
   },
   // 热门
   getHotBookList() {
     Api.getHotBookList().then((res) => {
-      res=res.slice(0,5)
-      res=res.map(item=>{
-        item['create_time']=''
-        return item
-      })
+      res = res.slice(0, 5);
+      res = res.map((item) => {
+        item["create_time"] = "";
+        return item;
+      });
       this.setData({
         HotBookList: res,
       });
@@ -199,6 +205,11 @@ Page({
    */
   onLoad: function (options) {
     this.getBookClass();
+    this.getHotBookList();
+    this.getNewBookList();
+    if (storage.getToken()) {
+      this.getUserInfo();
+    }
   },
 
   /**
@@ -210,11 +221,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getHotBookList();
-    this.getNewBookList();
-    if (storage.getToken()) {
-      this.getUserInfo();
-    }
+   
   },
 
   /**
@@ -236,9 +243,9 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    let {active}=this.data
-    if(active=='order'){
-      this.onorderpull()
+    let { active } = this.data;
+    if (active == "order") {
+      this.onorderpull();
     }
   },
 
