@@ -1,4 +1,7 @@
 /* pages/booklist/booklist.wxss */
+.blook-list{
+  padding:0 30rpx;
+}
 .isnulllist{
   font-size: 22rpx;
   color: #cccccc;

@@ -8,6 +8,7 @@ Page({
    */
   data: {
     active: "home",
+    bookclasslist:[],
     tabbarList: [
       {
         id: 1,
@@ -166,7 +167,10 @@ Page({
   //  获取图书分类/
   getBookClass() {
     Api.getBookClass().then((res) => {
-      console.log(res);
+      res=res.slice(0,6)
+      this.setData({
+        bookclasslist:res
+      })
     });
   },
   // 热门

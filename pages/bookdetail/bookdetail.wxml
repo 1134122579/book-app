@@ -15,8 +15,13 @@
       <view class="bookrate ">
         <view>编号：{{bookdetail.book_no}}</view>
       </view>
-      <view class="bookrate sale_price">
-        <view>￥{{bookdetail.sale_price}}</view>
+      <view class="bookrate sale_price flexstart">
+        <view class="flexstart">
+        <iconfont name="shou" size="20"/> <view>￥{{bookdetail.sale_price}}</view>
+        </view>
+        <view class="flexstart" style="margin-left: 14rpx;color:#E37A11 ;">
+          <iconfont name="zu"/><view>￥{{bookdetail.unit_price}}</view> 
+        </view>
       </view>
       <view class="bookrate ">
         <view>{{bookdetail.stock_num}} 本</view>

@@ -3,7 +3,7 @@
 </view> -->
 <!-- 首页 -->
 <van-transition duration="400" show="{{ active=='home' }}" name="fade" custom-class="block">
-  <HomePage HotBookList="{{HotBookList}}" NewBookList="{{NewBookList}}" />
+  <HomePage HotBookList="{{HotBookList}}" bookclasslist="{{bookclasslist}}" NewBookList="{{NewBookList}}" />
 </van-transition>
 <!-- 借阅 -->
 <van-transition duration="400" show="{{ active=='class' }}" name="fade" custom-class="block">

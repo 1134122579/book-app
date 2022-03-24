@@ -1,7 +1,7 @@
 <view class="home">
   <!-- 搜索 -->
-  <van-search value="{{ searchValue}}" bindtap="gosearch" disabled  placeholder="搜索" use-action-slot shape="round">
-    <view slot="action" catchtap="nogo"  bind:tap="onClick">
+  <van-search value="{{ searchValue}}" bindtap="gosearch" disabled placeholder="搜索" use-action-slot shape="round">
+    <view slot="action" catchtap="nogo" bind:tap="onClick">
       <view class="scan">
         <van-icon name="scan" size="50rpx" />
       </view>
@@ -14,7 +14,7 @@
         <view class="type_title">
           最新上架
         </view>
-        <view class="moreStyle" bindtap="gomore">
+        <view class="moreStyle" bindtap="goNew">
           <view>更多</view>
           <van-icon name="arrow" />
         </view>
@@ -33,6 +33,43 @@
       </view>
     </view>
   </block>
+  <!-- 书籍分类 -->
+  <block class="newbook">
+    <view class="modelBlock">
+      <view class="type_style">
+        <view class="type_title">
+          书籍分类
+        </view>
+        <view class="moreStyle" bindtap="gomore">
+          <view>全部</view>
+          <van-icon name="arrow" />
+        </view>
+      </view>
+      <!-- 列表 -->
+      <view class="type">
+        <van-grid gutter="{{12}}" center border="{{false}}" column-num="{{columnnum}}">
+          <van-grid-item class="type-griditem" wx:for="{{ bookclasslist }}" wx:key="index" use-slot>
+            <!-- 内容 -->
+            <view class="type-calssstyle" bindtap="golist" data-item="{{item}}">
+              <view class="type-title">
+                {{item.name}}
+              </view>
+              <view class="type-desc">
+                {{item.num}}本书
+              </view>
+              <view class="type-imglist">
+                <block wx:for="{{cover}}" wx:key="index">
+                  <view class=" type-imagestyle type-imagestyle{{index}}">
+                    <image mode="aspectFill" src="{{item}}" style="width: 100%;height: 100%;" />
+                  </view>
+                </block>
+              </view>
+            </view>
+          </van-grid-item>
+        </van-grid>
+      </view>
+    </view>
+  </block>
   <!-- 热门书籍 -->
   <block>
     <view class="modelBlock">
@@ -40,17 +77,18 @@
         <view class="type_title">
           热门书籍
         </view>
-        <view class="moreStyle" bindtap="gomore">
+        <view class="moreStyle" bindtap="gonot">
           <view>更多</view>
           <van-icon name="arrow" />
         </view>
       </view>
       <!-- 列表 -->
       <view class="now_list">
-         <block wx:for="{{HotBookList}}" wx:key="index" >
-          <BookModel book="{{item}}"/>
+        <block wx:for="{{HotBookList}}" wx:key="index">
+          <BookModel book="{{item}}" />
         </block>
       </view>
     </view>
   </block>
+
 </view>

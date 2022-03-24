@@ -1,4 +1,7 @@
 
+.collect{
+  padding: 0 30rpx;
+}
 
 .ismore{
   text-align: center;

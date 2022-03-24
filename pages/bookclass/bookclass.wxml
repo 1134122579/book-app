@@ -1,7 +1,7 @@
 
 
 <view class="type" >
-  <van-grid gutter="{{ 4 }}"  border="{{false}}" column-num="{{columnnum}}">
+  <van-grid gutter="{{ 12}}"  border="{{false}}" column-num="{{columnnum}}">
   <van-grid-item  class="griditem"  wx:for="{{ list }}" wx:key="index" use-slot>
   <!-- 内容 -->
   <view class="calssstyle" bindtap="golist" data-item="{{item}}">

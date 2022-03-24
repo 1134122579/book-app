@@ -163,7 +163,7 @@ Page({
   },
   payRentBookOrder() {
     let { isbookorder } = this.data;
-    let { class_id, table_no = 10, id: book_id } = this.data.bookdetail;
+    let { class_id, table_no = 10, id: book_id,unit_price:price } = this.data.bookdetail;
     let {is_auth }=storage.getUserInfo()
     if(is_auth!=1){
       wx.showToast({
@@ -177,6 +177,7 @@ Page({
       class_id,
       table_no,
       book_id,
+      price
     }).then((res) => {
       wx.showToast({
         title: "已申请借书，请稍等",

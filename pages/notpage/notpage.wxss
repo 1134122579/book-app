@@ -1,0 +1,6 @@
+/* pages/newpage/newpage.wxss */
+
+.list{
+  padding-bottom: 50rpx;
+  background: #ffffff;
+}

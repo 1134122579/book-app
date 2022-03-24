@@ -1,0 +1,6 @@
+
+<view class="list">
+  <block wx:for="{{list}}" wx:key="index">
+    <BooknotModel book="{{item}}" bind:onCollect="onCollect"/>
+</block>
+</view>

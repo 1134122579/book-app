@@ -1,6 +1,8 @@
 /* compoents/HomePage/HomePage.wxss */
 page {
   background: #F7F7F7;
+  --grid-item-content-background-color: #fff;
+  --grid-item-content-padding: 5rpx 5rpx;
 }
 .home{
   padding-bottom: 120rpx;
@@ -49,6 +51,7 @@ page {
   justify-content: flex-start;
   align-items: center;
   flex-wrap: nowrap;
+  margin: 20rpx 0;
   padding: 18rpx 0;
   overflow-x: auto;
 }
@@ -56,7 +59,7 @@ page {
 .chunk {
   width: 210rpx;
   font-size: 26rpx;
-  margin-right: 30rpx;
+  margin-right: 36rpx;
   flex-shrink: 0;
   line-height: 1.5;
   text-align: left;
@@ -102,4 +105,71 @@ page {
 .now_list {
   padding: 20rpx 20rpx;
   box-sizing: border-box;
+}
+
+
+
+
+.type {
+  /* background: #; */
+  width: 100%;
+  padding-top: 40rpx;
+  box-sizing: border-box;
+}
+
+.type-calssstyle {
+  background: #F7F8FA;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  font-size: 24rpx;
+  padding: 34rpx 0;
+  border-radius: 10rpx;
+}
+
+.type-griditem {
+  background: #F6F6F6;
+  text-align: center;
+}
+
+.type-title {
+  font-size: 26rpx;
+  font-weight: 600;
+}
+
+.type-desc {
+  font-size: 20rpx;
+  color: #807e7e;
+  padding: 10rpx 0;
+}
+
+.type-imglist {
+  width: 60rpx;
+  height: 100rpx;
+  margin: 10rpx auto;
+  position: relative;
+}
+
+.type-imagestyle {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: block;
+  height: 100%;
+  border-radius: 10rpx;
+}
+.type-imagestyle0{
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+.type-imagestyle1{
+  left: -40rpx;
+  height: 90%;
+  margin-top: 5%;
+}
+.type-imagestyle2{
+  height: 90%;
+  right: -26px;
+  margin-top: 5%;
 }
