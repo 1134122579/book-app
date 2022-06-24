@@ -1,1 +1,13 @@
 /* pages/searchpage/searchpage.wxss */
+.ismore {
+  padding: 20rpx;
+  color: #ccc;
+  font-size: 24rpx;
+  text-align: center;
+}
+.scan{
+  background: #ED6925;
+  padding:  0 20rpx;
+  border-radius: 14rpx;
+  color: #fff;
+}

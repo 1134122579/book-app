@@ -58,7 +58,7 @@
                 {{item.num}}本书
               </view>
               <view class="type-imglist">
-                <block wx:for="{{cover}}" wx:key="index">
+                <block wx:for="{{item.covers}}" wx:key="index">
                   <view class=" type-imagestyle type-imagestyle{{index}}">
                     <image mode="aspectFill" src="{{item}}" style="width: 100%;height: 100%;" />
                   </view>

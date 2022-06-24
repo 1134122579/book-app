@@ -1,6 +1,6 @@
 Component({
   properties: {
-    // maichu | shou | zu | icon-test | xin | renzhengpeizhi | Vrenzheng | Vrenzheng-cg
+    // yu | beijing1 | maichu | shou | zu | icon-test | xin | renzhengpeizhi | Vrenzheng | Vrenzheng-cg
     name: {
       type: String,
     },

@@ -15,7 +15,7 @@ Page({
     bookdetail: {},
     book_id: "", //
     page:1,
-    commentcontent:'12',
+    commentcontent:'',
     commentlist:[]
   },
   zanBookComment(event){

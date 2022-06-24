@@ -1,6 +1,6 @@
 <view class="bookorderlist">
-  <van-tabs active="{{ active }}" sticky ellipsis="{{false}}">
-    <van-tab title="{{item.name}}" wx:for="{{typelist}}" name="{{item.id}}">
+  <van-tabs active="{{ active }}" sticky ellipsis="{{false}}" lazy-render="{{false}}" title-active-color="#ED6925" color="#ED6925" >
+    <van-tab title="{{item.name}}" wx:for="{{typelist}}" wx:key="index" name="{{item.id}}">
   <!-- 列表 -->
       <block wx:for="{{10}}">
         <BookModel book="item" />

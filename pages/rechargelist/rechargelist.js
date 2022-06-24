@@ -1,44 +1,20 @@
-// pages/searchpage/searchpage.js
+// pages/collect/collect.js
 import Api from "../../api/index";
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    searchValue: "",
     page: 1,
-    book_name: "",
-    ismore: false,
     list: [],
-  },
-  onClick() {
-    let {  book_name } = this.data;
-    if(!book_name){
-      wx.showToast({
-        title: '请输入书名',
-        icon:'none'
-      })
-      return
-    }
-    this.getCollectLog();
-  },
-  onChange(event) {
-    console.log(event.detail);
-    let value = event.detail;
-    this.setData({
-      book_name: value.trim(),
-    });
-    if (value.trim()) {
-      this.getCollectLog();
-    }
+    ismore:false
   },
   getCollectLog() {
-    let { page, list, book_name } = this.data;
-    if (!book_name.trim()) return;
-    Api.getsearchBook({ book_name, page }).then((res) => {
+    let { page, list } = this.data;
+    Api.getCollectLog({ page }).then((res) => {
       this.setData({
-        ismore: res.length <= 0,
-      });
+        ismore:res.length<=0
+      })
       if (page == 1) {
         this.setData({
           list: res,
@@ -50,14 +26,16 @@ Page({
       }
     });
   },
-  onpull() {
-    this.data.page++;
-    this.getCollectLog();
+  onpull(){
+    this.data.page++
+    this.getCollectLog()
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {},
+  onLoad: function (options) {
+    this.getCollectLog();
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -82,13 +60,14 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {},
+  onPullDownRefresh: function () {
+  },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    this.onpull();
+    this.onpull()
   },
 
   /**

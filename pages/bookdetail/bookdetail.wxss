@@ -2,9 +2,8 @@
 .book {
   background: #F5F5F5;
   box-sizing: border-box;
-  padding-bottom: 150rpx;
+  padding-bottom: 92rpx;
 }
-
 .bookheader {
   display: flex;
   justify-content: space-between;
@@ -175,4 +174,10 @@ text-align: center;
 font-size: 22rpx;
 padding: 20rpx;
 color: #ccc;
+}
+.van-icon-like{
+  color: #ff0000;
+}
+.van-icon-star{
+  color: #FDAD4A;
 }

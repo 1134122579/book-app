@@ -36,18 +36,31 @@ page {}
   padding:0 20rpx;
   /* height: 260rpx; */
 }
-
+.textStyle_top{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  height: 100%;
+}
 .now_chunk_title {
   /* font-weight: 600; */
   font-size: 32rpx;
 }
 
 .now_chunk_desc {
-  color: #ccc;
+  color: rgb(136, 133, 133);
   font-size: 28rpx;
-  margin-top: 10rpx;
+  margin-top: 14rpx;
 }
-
+.now_chunk_price {
+  color: #ff0000;
+  font-size: 26rpx;
+  margin-top: 80rpx;
+}
+.now_chunk_order_no{
+  margin-top: 14rpx;
+}
 /* 书本记录 */
 .now_chunk_ {
   color: #ccc;

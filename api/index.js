@@ -235,8 +235,22 @@ export default {
       isThree: false,
     });
   },
-  
-  
-  
-  
+  getsearchBook(params) {
+    return fly({
+      url: `getsearchBook`,
+      method: "post",
+      params,
+      loading: false,
+      isThree: false,
+    });
+  },
+  returnBook(params) {
+    return fly({
+      url: `returnBook`,
+      method: "post",
+      params,
+      loading: false,
+      isThree: false,
+    });
+  },
 };

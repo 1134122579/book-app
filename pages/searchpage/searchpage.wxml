@@ -1,12 +1,22 @@
 <view>
 <!-- 搜索 -->
   <!-- 搜索 -->
-  <van-search value="{{ searchValue}}"   placeholder="搜索" use-action-slot shape="round" bind:change="onChange" bind:search="onSearch">
+  <van-search value="{{ searchValue}}"  bind:change="getCollectLog"  placeholder="请输入书名" use-action-slot shape="round" bind:change="onChange" >
     <view slot="action" bind:tap="onClick">
       <view class="scan">
-        <van-icon name="scan" size="50rpx" />
+        <!-- <van-icon name="scan" size="50rpx" /> -->
+        搜索
       </view>
     </view>
   </van-search>
-
+  
+    <block wx:if="{{list.length>0}}">
+      <block wx:for="{{list}}" wx:key="index">
+          <BooknotModel book="{{item}}"/>
+      </block>
+      <view hidden="{{!ismore}}" class="ismore">暂无更多</view>
+    </block>
+    <block wx:if="{{book_name&&list.length<=0}}">
+      <van-empty description="暂无此书籍" />
+    </block>
 </view>

@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    istransition:true,
     active: "home",
     bookclasslist: [],
     tabbarList: [
@@ -64,6 +65,7 @@ Page({
   },
   // 切换
   onChange(event) {
+    let {active}=this.data
     if (storage.getToken()) {
       switch (event.detail) {
         case "order":
@@ -75,7 +77,15 @@ Page({
         default:
           break;
       }
-      this.setData({ active: event.detail });
+if(active==event.detail)return
+      this.setData({ active: event.detail,
+        istransition:false
+      });
+      setTimeout(() => {
+          this.setData({
+            istransition:true
+          })
+      }, 300);
     } else {
       wx.reLaunch({
         url: "/pages/login/login",

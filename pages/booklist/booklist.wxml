@@ -1,5 +1,5 @@
 <view class="booklist">
-  <van-tabs active="{{ class_id }}" animated id="tabs" sticky ellipsis="{{false}}" bind:change="tabchange">
+  <van-tabs active="{{ class_id }}" animated id="tabs" sticky ellipsis="{{false}}" lazy-render="{{false}}" title-active-color="#ED6925" color="#ED6925" bind:change="tabchange">
     <van-tab title="{{item.name}}" wx:for="{{typelist}}" wx:key="index" name="{{item.id}}">
       <!-- 列表 -->
       <view class="blook-list">
@@ -9,9 +9,10 @@
         </block>
         <view class="isnulllist" hidden="{{!isnulllist}}">暂无更多</view>
       </block>
-      <van-empty wx:else description="暂无数据" />
+      <block wx:else >
+        <van-empty description="暂无数据" />
+      </block>
       </view>
-     
     </van-tab>
   </van-tabs>
   <!-- 列表 -->

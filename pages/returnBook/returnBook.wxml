@@ -1,0 +1,9 @@
+<view class="returnbook">
+
+  <view class="block-one flexcolumn">
+    <view class="title">客户还书</view>
+    <view class="block-radius flexcolumn" bindtap="returnBook">
+      <van-icon name="scan"  size="24" style="color: #fff;"/>
+    </view>
+  </view>
+</view>

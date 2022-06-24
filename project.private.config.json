@@ -51,6 +51,20 @@
           "name": "管理员",
           "pathName": "pages/admin/admin",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "列表",
+          "pathName": "pages/booklist/booklist",
+          "query": "class_id=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "搜索页面",
+          "pathName": "pages/searchpage/searchpage",
+          "query": "",
           "scene": null,
           "launchMode": "default"
         }

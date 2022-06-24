@@ -24,7 +24,7 @@
         </view>
       </view>
       <view class="bookrate ">
-        <view>{{bookdetail.stock_num}} 本</view>
+         库存：<view>{{bookdetail.stock_num}} 本</view>
       </view>
 
       <view class="bookrate">
@@ -99,8 +99,8 @@
     <van-goods-action>
       <van-goods-action-icon icon="share-o" class="actioiconn" text="分享" open-type="share" />
       <van-goods-action-icon icon="comment-o" bind:click="oncomment" class="actioiconn" text="评论" info="{{bookdetail.pl_num>99?'99+':bookdetail.pl_num}}" />
-      <van-goods-action-icon icon="{{bookdetail.is_like==1?'like':'like-o'}}" bind:click="onlike" class="actioiconn" text="点赞" />
-      <van-goods-action-icon icon="{{bookdetail.is_collect==1?'star':'star-o'}}" bind:click="oncollect" class="actioiconn" text="收藏" />
+      <van-goods-action-icon style="{{bookdetail.is_like==1&&'color:#ff0000'}}" icon="{{bookdetail.is_like==1?'like':'like-o'}}" bind:click="onlike" class="actioiconn" text="点赞" />
+      <van-goods-action-icon style="{{bookdetail.is_collect==1&&'color:#ff0000'}}" icon="{{bookdetail.is_collect==1?'star':'star-o'}}" bind:click="oncollect" class="actioiconn" text="收藏" />
       <!-- <van-goods-action-button color="#be99ff" text="加入购物车" type="warning" /> -->
       <van-goods-action-button color="#F7DA65" size="small" text="{{isbookorder?'已申请借书':'借书'}}" disabled="{{isbookorder}}" bind:click="payRentBookOrder" />
     </van-goods-action>

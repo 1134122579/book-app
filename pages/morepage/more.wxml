@@ -1,18 +1,28 @@
 <wxs src="../../utils/split.wxs" module="split" />
 
-<view class="morerpage" >
+<view class="morerpage">
 	<!-- 个人信息 -->
 	<view class="more_header">
 		<!-- <image class="header_bg" src="../../images/anoutbg.png"></image> -->
 		<view class="user_content">
 			<view class="user_content_t" bindtap="onuserInfo">
 				<van-image round width="70" height="70" src="{{userInfo.headimgurl}}"></van-image>
-				<view class="userName ">
-				{{userInfo.is_auth==1?userInfo.name:'未认证'}}
+				<view class="user-info">
+					<view class="user-col">
+						<view class="userName ">
+							{{userInfo.is_auth==1?userInfo.name:'未认证'}}
+						</view>
+						<iconfont size="20" name="{{userInfo.is_auth==1?'Vrenzheng-cg':'Vrenzheng'}}"></iconfont>
+						<van-icon style="margin-left: 14rpx;" name="edit" size="20" />
+					</view>
+					<view class="user-col">
+						<view class="user-price flexstart">
+							<iconfont name="yu" size="20"/><text class="price">{{userInfo.balance}}</text>
+						</view>
+					</view>
 				</view>
-				<iconfont size="20" name="{{userInfo.is_auth==1?'Vrenzheng-cg':'Vrenzheng'}}"></iconfont> 
-				<van-icon style="margin-left: 14rpx;" name="edit" size="20" />
 			</view>
+
 		</view>
 	</view>
 	<!-- 功能 -->
@@ -22,8 +32,7 @@
 		</view>
 		<block wx:for="{{list}}" wx:key="title">
 			<view class="{{item.marginTop}}" hidden="{{!split.power(powerlist,item.is_power)}}">
-				<van-cell title="{{item.title}}" url="{{item.to}}" link-type="{{item.linktype}}" is-link icon="{{item.icon}}"
-					value="{{item.value}}" border="{{isborder}}" />
+				<van-cell title="{{item.title}}" url="{{item.to}}" link-type="{{item.linktype}}" is-link icon="{{item.icon}}" value="{{item.value}}" border="{{item.isborder}}" size="large"/>
 			</view>
 			<!-- 联系客服 -->
 			<!-- <view wx:if="{{item.isbutton}}" class="{{item.marginTop}}" wx:if="{{split.power(powerlist,item.is_power)}}">
@@ -33,7 +42,7 @@
 	</view>
 
 	<view class="contact">
-		<button class="button_style" open-type="contact" >
+		<button class="button_style" open-type="contact">
 			<van-icon name="service-o" size="20"></van-icon>
 		</button>
 	</view>

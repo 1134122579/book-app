@@ -17,21 +17,23 @@ Page({
     this.setData({
       typelist: res,
     });
+    this.selectComponent("#tabs").resize();
   },
   //  获取图书列表/
   async getBook() {
     let { class_id ,page,list} = this.data;
     let res = await Api.getBook({ class_id ,page});
+    console.log(res)
     this.setData({
       isnulllist:res.length<=0
     });
     if(page==1){
       this.setData({
-        list: res.concat(res),
+        list: res,
       });
     }else{
       this.setData({
-        list: res.concat(res),
+        list: list.concat(res),
       });
     }
   
@@ -41,6 +43,7 @@ Page({
     let { name, index, title } = event.detail;
     this.setData({
       class_id: name,
+      page:1
     });
     this.getBook()
   },
@@ -70,7 +73,6 @@ Page({
   onShow: function () {
     this.getBookClass();
     this.getBook();
-    this.selectComponent("#tabs").resize();
   },
 
   /**

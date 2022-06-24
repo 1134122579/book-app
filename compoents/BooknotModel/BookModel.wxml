@@ -9,19 +9,19 @@
         {{bookinfo.title}}
       </view>
       <!-- 评星 -->
-      <view class="now_chunk_rate now_chunk_desc"  >
+      <view class="now_chunk_rate now_chunk_desc"  wx:if="{{!isorder}}">
         <van-rate value="{{ bookinfo.stars }}" size="24rpx" readonly  color="#FFD21E" void-color="#ccc" />
       </view>
       <view wx:if="{{bookinfo.author}}"  class="now_chunk_desc">
         {{bookinfo.author}}
       </view>
-      <view wx:if="{{bookinfo.price}}" class="now_chunk_desc">
+      <view wx:if="{{bookinfo.price}}" class="now_chunk_price">
        ￥{{bookinfo.price}}
       </view>
-      <view wx:if="{{bookinfo.order_no}}" class="now_chunk_desc">
+      <view wx:if="{{bookinfo.order_no}}" class="now_chunk_desc now_chunk_order_no ">
         {{bookinfo.order_no}}
       </view>
-      <view wx:if="{{bookinfo.create_time}}" class="now_chunk_desc">
+      <view wx:if="{{bookinfo.create_time}}" class="now_chunk_desc now_chunk_order_no">
         {{bookinfo.create_time}}
       </view>
       <view class="now_chunk_desc" wx:if="{{bookinfo.desc}}">
@@ -34,7 +34,7 @@
       <text class="now_chunk_one">{{bookinfo.pv_num}}浏览</text>
     </view>
   </view>
-  <view  bindtap="oncollect">
+  <view  bindtap="oncollect" wx:if="{{!isorder}}">
     <iconfont name="xin" size="24" wx:if="{{bookinfo.is_collect==1}}"/>
     <iconfont name="icon-test" size="24" wx:else/>
   </view>

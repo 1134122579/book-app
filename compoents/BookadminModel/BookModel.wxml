@@ -12,7 +12,7 @@
        客户： {{bookinfo.table_no}} 桌
       </view>
       <view class="now_chunk_desc">
-        书位： {{bookinfo.shelf_name}}  价格：￥{{bookinfo.price}}
+        书位：<text class="shelf_name">{{bookinfo.shelf_name}}</text>   价格：<text class="price">￥{{bookinfo.price}}</text> 
       </view>
       <view wx:if="{{bookinfo.order_no}}" class="now_chunk_desc">
         {{bookinfo.order_no}}

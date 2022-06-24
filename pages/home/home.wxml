@@ -1,59 +1,54 @@
-<!-- <view wx:if="{{active=='home'}}">
-  <HomePage />
-</view> -->
-<!-- 首页 -->
-<van-transition duration="400" show="{{ active=='home' }}" name="fade" custom-class="block">
+<van-transition duration="400" show="{{istransition }}" name="fade" custom-class="block">
+  <!-- 首页 -->
+  <block wx:if="{{ active=='home' }}">
   <HomePage HotBookList="{{HotBookList}}" bookclasslist="{{bookclasslist}}" NewBookList="{{NewBookList}}" />
-</van-transition>
-<!-- 借阅 -->
-<van-transition duration="400" show="{{ active=='class' }}" name="fade" custom-class="block">
+  </block>
   <!-- 借阅流程 -->
-  <view class="borrw flexcolumn">
-    <view class="borrw-title">
-      借阅流程
-    </view>
-    <image src="/assets/jy.png" mode="widthFix" alt=""/>
-    <view class="borrw-button ">
-      <!-- <view class="borrw-button-son still-button" bindtap="stillclick">
+  <block wx:if="{{ active=='class' }}">
+    <view class="borrw flexcolumn">
+      <view class="borrw-title">
+        借阅流程
+      </view>
+      <image src="/assets/jy.png" mode="widthFix" alt="" />
+      <view class="borrw-button ">
+        <!-- <view class="borrw-button-son still-button" bindtap="stillclick">
         还书
         </view> -->
-      <view class="borrw-button-son" bindtap="borrwclick">
-        借书
+        <view class="borrw-button-son" bindtap="borrwclick">
+          借书
         </view>
+      </view>
     </view>
-  </view>
-</van-transition>
-<!-- 订单 -->
-<van-transition duration="400" show="{{ active=='order' }}" name="fade" custom-class="block">
-  <!-- <order /> -->
-  <view class="bookorderlist modelblock">
-    <van-tabs active="{{ listQuery.status }}" id="ordertabs" bind:change="orderChange" sticky ellipsis="{{false}}">
-      <van-tab title="{{item.name}}" wx:for="{{ordertypelist}}" wx:key="index" name="{{item.id}}">
-        <!-- 列表 -->
-        <view class="orderlist">
-          <block wx:if="{{orderList.length>0}}">
-          <block wx:for="{{orderList}}" class="">
-            <BooknotModel book="{{item}}" />
-          </block>
-          <view hidden="{{!isordermore}}" class="isordermore">暂无更多</view>
-        </block>
-        <block wx:else>
-          <van-empty description="暂无数据" />
-        </block>
-        </view>
-      </van-tab>
-    </van-tabs>
-    <!-- 列表 -->
-    <view>
+  </block>
+  <!-- 订单 -->
+  <block wx:if="{{ active=='order' }}">
+    <view class="bookorderlist modelblock">
+      <van-tabs active="{{ listQuery.status }}" id="ordertabs" bind:change="orderChange" sticky ellipsis="{{false}}" lazy-render="{{false}}" title-active-color="#ED6925" color="#ED6925">
+        <van-tab title="{{item.name}}" wx:for="{{ordertypelist}}" wx:key="index" name="{{item.id}}">
+          <!-- 列表 -->
+          <view class="orderlist">
+            <block wx:if="{{orderList.length>0}}">
+              <block wx:for="{{orderList}}" wx:key="index" class="">
+                <BooknotModel book="{{item}}" isorder="{{true}}" />
+              </block>
+              <view hidden="{{!isordermore}}" class="isordermore">暂无更多</view>
+            </block>
+            <block wx:else>
+              <van-empty description="暂无数据" />
+            </block>
+          </view>
+        </van-tab>
+      </van-tabs>
+      <!-- 列表 -->
+      <view>
+      </view>
     </view>
-  </view>
+  </block>
+  <!-- 个人中心 -->
+  <block wx:if="{{active=='friends'}}">
+    <morepage userInfo="{{userInfo}}" />
+  </block>
 </van-transition>
-<!-- 个人中心 -->
-<van-transition duration="400" show="{{ active=='friends' }}" name="fade" custom-class="block">
-  <morepage userInfo="{{userInfo}}" />
-</van-transition>
-
-
 
 <view>
   <van-tabbar active="{{ active }}" bind:change="onChange" active-color="#ED6925">

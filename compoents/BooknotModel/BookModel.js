@@ -17,6 +17,10 @@ Component({
         });
       },
     },
+    isorder: {
+      type: Boolean,
+      value: false,
+    },
   },
 
   /**

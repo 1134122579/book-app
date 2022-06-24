@@ -5,11 +5,27 @@ page {}
   border-radius: 10rpx;
   /* box-shadow: 0 0 10rpx #ccc; */
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
-  padding:0 30rpx;
-  padding-top: 50rpx;
+  padding: 20rpx 30rpx;
   height: 260rpx;
+  border-bottom: 1px solid #fafafa;
+}
+
+.textStyle_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+  height: 100%;
+}
+
+.price {
+  color: #ff0000;
+}
+
+.shelf_name {
+  color: #ff0000;
 }
 
 .now_imagestyle {
@@ -33,7 +49,7 @@ page {}
   align-items: flex-start;
   flex-direction: column;
   height: 100%;
-  padding:0 20rpx;
+  padding: 0 20rpx;
   /* height: 260rpx; */
 }
 
@@ -57,7 +73,8 @@ page {}
 .now_chunk_one {
   margin-right: 10rpx;
 }
-.button{
+
+.button {
   width: 100rpx;
   border-radius: 60rpx;
   background: #ED6925;

@@ -6,6 +6,7 @@
     "pages/newpage/newpage",
     "pages/notpage/notpage",
     "pages/userInfo/userInfo",
+    "pages/rechargelist/rechargelist",
     "pages/authpage/authpage",
     "pages/admin/admin",
     "pages/order/order",
@@ -15,7 +16,8 @@
     "pages/bookdetail/bookdetail",
     "pages/index/index",
     "pages/login/login",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/returnBook/returnBook"
   ],
   "window": {
     "backgroundTextStyle": "light",
