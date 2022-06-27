@@ -9,8 +9,11 @@
         {{bookdetail.book_name}}
       </view>
       <view class="bookrate">
-        <van-rate value="{{bookdetail.stars }}" allow-half void-icon="star" readonly void-color="#eee" size="24rpx" />
+        <van-rate value="{{bookdetail.stars }}" allow-half void-icon="star" readonly color="#F7DA65" void-color="#eee" size="24rpx" />
         <view> {{bookdetail.stars}}</view>
+      </view>
+      <view class="bookrate ">
+        <view>作者：{{bookdetail.author}}</view>
       </view>
       <view class="bookrate ">
         <view>编号：{{bookdetail.book_no}}</view>

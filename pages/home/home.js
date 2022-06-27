@@ -43,21 +43,25 @@ Page({
     order_active: "",
     ordertypelist: [
       {
-        id: 1,
-        name: "已归还",
-      },
-      {
         id: 2,
         name: "已预订",
       },
       {
         id: 3,
+        name: "送书中",
+      },
+      {
+        id: 1,
+        name: "已归还",
+      },
+      {
+        id: 4,
         name: "借书中",
       },
     ],
     listQuery: {
       page: 1,
-      status: 1,
+      status: 2,
     },
     HotBookList: [],
     NewBookList: [],
@@ -202,6 +206,13 @@ if(active==event.detail)return
       });
     });
   },
+  getNotice(){
+    Api.getNotice().then(res=>{
+      this.setData({
+        msg:res.msg
+      })
+    })
+  },
   // 最新
   getNewBookList() {
     Api.getNewBookList().then((res) => {
@@ -217,6 +228,7 @@ if(active==event.detail)return
     this.getBookClass();
     this.getHotBookList();
     this.getNewBookList();
+    this.getNotice()
     if (storage.getToken()) {
       this.getUserInfo();
     }

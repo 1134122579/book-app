@@ -27,6 +27,7 @@
   },
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
+    "van-notice-bar": "@vant/weapp/notice-bar/index",
     "van-tabbar": "@vant/weapp/tabbar/index",
     "van-field": "@vant/weapp/field/index",
     "van-empty": "@vant/weapp/empty/index",

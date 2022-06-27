@@ -7,6 +7,9 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    msg:{
+      type:String,
+    },
     HotBookList:{
       type:Array,
       value:[],
@@ -64,6 +67,7 @@ Component({
         url: '/pages/newpage/newpage',
       })
     },
+
     gonot(){
       wx.showLoading({
         title: '加载中..',
@@ -75,6 +79,7 @@ Component({
     nogo(){
   
     },
+  
     gosearch(){
       wx.showLoading({
         title: '加载中..',

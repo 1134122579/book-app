@@ -1,5 +1,6 @@
 // pages/returnBook/returnBook.js
 import Api from "../../api/index";
+import storage from "../../utils/cache";
 Page({
   /**
    * 页面的初始数据
@@ -10,8 +11,10 @@ Page({
       onlyFromCamera: true,
       success(res) {
         let { result } = res;
+        let { user_id } = storage.getUserInfo();
         Api.returnBook({
           book_code: result,
+          user_id
         }).then((res) => {
           wx.showToast({
             title: "归还成功",

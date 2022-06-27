@@ -65,6 +65,20 @@
           "name": "搜索页面",
           "pathName": "pages/searchpage/searchpage",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/login/login",
+          "query": "id=44",
+          "launchMode": "default",
+          "scene": 1011
+        },
+        {
+          "name": "",
+          "pathName": "pages/home/home",
+          "query": "table_no=11",
           "scene": null,
           "launchMode": "default"
         }

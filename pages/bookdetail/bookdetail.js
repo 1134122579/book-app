@@ -163,7 +163,8 @@ Page({
   },
   payRentBookOrder() {
     let { isbookorder } = this.data;
-    let { class_id, table_no = 10, id: book_id,unit_price:price } = this.data.bookdetail;
+    let { class_id,  id: book_id,unit_price:price } = this.data.bookdetail;
+    let {table_no}=getApp().globalData
     let {is_auth }=storage.getUserInfo()
     if(is_auth!=1){
       wx.showToast({
@@ -172,7 +173,6 @@ Page({
       })
       return
     }
-
     Api.payRentBookOrder({
       class_id,
       table_no,

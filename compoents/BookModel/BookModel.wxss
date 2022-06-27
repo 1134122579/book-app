@@ -6,7 +6,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  margin-bottom: 100rpx;
+  margin-top: 80rpx;
   height: 280rpx;
   padding: 0 30rpx;
 }

@@ -1,17 +1,18 @@
 // app.js
 App({
   onLaunch() {
+    this.getwxcode();
     // 展示本地存储能力
-    const logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+    const logs = wx.getStorageSync("logs") || [];
+    logs.unshift(Date.now());
+    wx.setStorageSync("logs", logs);
 
     // 登录
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
+      },
+    });
     // 热更新
     if (wx.canIUse("getUpdateManager")) {
       const updateManager = wx.getUpdateManager();
@@ -43,7 +44,21 @@ App({
     } else {
     }
   },
+  getwxcode() {
+    // 小程序扫码场景值
+    const qrcodeScenes = [1047, 1048, 1049];
+    const { query, scene: pageScene } = wx.getLaunchOptionsSync();
+    let optionsQuery = query;
+    const enterOptionsQuery = wx.getEnterOptionsSync().query;
+    // 只有二次扫码的情况才会使用 wx.getEnterOptionsSync() 获取参数
+    if (qrcodeScenes.includes(pageScene) && !enterOptionsQuery) {
+      optionsQuery = wx.getEnterOptionsSync().query;
+    }
+    console.log(optionsQuery);
+    this.globalData.table_no=optionsQuery.table_no||10
+  },
   globalData: {
-    userInfo: null
-  }
-})
+    userInfo: null,
+    table_no:10,
+  },
+});

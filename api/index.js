@@ -176,7 +176,16 @@ export default {
       url: `cancelZanBook`,
       method: "post",
       params,
-      loading: true,
+      loading: false,
+      isThree: false,
+    });
+  },
+  getNotice(params) {
+    return fly({
+      url: `getNotice`,
+      method: "get",
+      params,
+      loading: false,
       isThree: false,
     });
   },

@@ -147,7 +147,7 @@ white-space: nowrap;
 }
 .comment-poup{
   width: 80vw;
-  height: 60vh;
+  padding-top: 16rpx;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -155,8 +155,8 @@ white-space: nowrap;
 .pushcomment{
   text-align: center;
   width: 100%;
-  font-size: 32rpx;
-  padding: 18rpx;
+  font-size: 28rpx;
+  padding: 10rpx ;
   box-sizing: border-box;
 }
 .pushbutton{
@@ -166,6 +166,8 @@ white-space: nowrap;
   color: #fff;
   margin: 10px auto;
   border-radius: 60rpx;
+  text-indent: 10rpx;
+  letter-spacing: 10rpx;
 }
 
 /* 暂无更多 */

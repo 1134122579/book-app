@@ -19,6 +19,12 @@ page {
   align-content: center;
   font-weight: 600;
 }
+/* 消息提醒 */
+
+.notice{
+margin-bottom: 40rpx;
+}
+
 
 /* 分类样式 */
 .modelBlock {
@@ -91,6 +97,9 @@ page {
 .chunk_desc {
   font-size: 24rpx;
   color: #ccc;
+  overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;
   width: 100%;
 }
 

@@ -1,11 +1,11 @@
 <view class="home">
   <!-- 搜索 -->
   <van-search value="{{ searchValue}}" bindtap="gosearch" disabled placeholder="搜索" use-action-slot shape="round">
-    <view slot="action" catchtap="nogo" bind:tap="onClick">
+    <!-- <view slot="action" catchtap="nogo" bind:tap="onClick">
       <view class="scan">
         <van-icon name="scan" size="50rpx" />
       </view>
-    </view>
+    </view> -->
   </van-search>
   <!-- 最新上架 -->
   <block class="newbook">
@@ -33,6 +33,13 @@
       </view>
     </view>
   </block>
+  <view class="notice">
+    <van-notice-bar
+  left-icon="volume-o"
+  text="{{msg}}"
+/>
+  </view>
+
   <!-- 书籍分类 -->
   <block class="newbook">
     <view class="modelBlock">
