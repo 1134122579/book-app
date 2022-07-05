@@ -173,21 +173,28 @@ Page({
       })
       return
     }
-    Api.payRentBookOrder({
-      class_id,
-      table_no,
-      book_id,
-      price
-    }).then((res) => {
-      wx.showToast({
-        title: "已申请借书，请稍等",
-        icon: "noen",
-        duration: 3000,
-      });
-      this.setData({
-        isbookorder: true,
-      });
-    });
+    wx.requestSubscribeMessage({
+      tmplIds: ['YUsAd1OMja7NlNFKKhg8TEhdNO147PvDc3ANHrVLLeQ'],
+      success (res) { },
+      complete(){
+        Api.payRentBookOrder({
+          class_id,
+          table_no,
+          book_id,
+          price
+        }).then((res) => {
+          wx.showToast({
+            title: "已申请借书，请稍等",
+            icon: "noen",
+            duration: 3000,
+          });
+          this.setData({
+            isbookorder: true,
+          });
+        });
+      }
+    })
+  
   },
   setBookPv() {
     let { book_id } = this.data;

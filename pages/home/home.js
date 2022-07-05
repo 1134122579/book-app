@@ -1,7 +1,7 @@
 // pages/home/home.js
 import storage from "../../utils/cache";
 import Api from "../../api/index";
-
+let App=getApp()
 Page({
   /**
    * 页面的初始数据
@@ -229,6 +229,9 @@ if(active==event.detail)return
     this.getHotBookList();
     this.getNewBookList();
     this.getNotice()
+    this.setData({
+      active:App.globalData.homeactive?'':'home'
+    })
     if (storage.getToken()) {
       this.getUserInfo();
     }

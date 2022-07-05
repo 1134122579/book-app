@@ -1,7 +1,6 @@
 import Fly from "./fly";
 import storage from "./cache";
 
-
 // import {
 //     encrypt
 // } from './crypto.js'
@@ -21,10 +20,10 @@ function loadingFun(loadingNum) {
   }
 }
 
-fly.config.baseURL = "https://book.skyorange.cn/api/v1/" // 开发
+fly.config.baseURL = "https://book.skyorange.cn/api/v1/"; // 开发
 // fly.config.baseURL = "https://carshop.nxcsoft.top/api/v1/"; // 生产
 // 添加请求拦截器，加入微信用户sessionId头部
-fly.interceptors.request.use((request) => {
+fly.interceptors.request.use(request => {
   //loding
   try {
     request.headers["app-type"] = "ios";
@@ -32,11 +31,10 @@ fly.interceptors.request.use((request) => {
     request.headers["sign"] = 123;
     // 获取token
     // storage.setToken('0559f388a67aeb400124cd12052dcd65dc15f19c5fb082f8e3bbf0b2bb95239eb31a66b89ee790a140aa8e24d1a4f6906ea7545adfd6b36805ec722d59a6c5d71bbbcc823565e86b9a7e590d4dc76737')
-    let token = storage.getToken()
+    let token = storage.getToken();
     if (token) {
       request.headers["access-user-token"] = token;
     }
-
 
     return request;
   } catch (e) {}
@@ -44,17 +42,16 @@ fly.interceptors.request.use((request) => {
 
 // 添加响应拦截器，统一处理错误
 fly.interceptors.response.use(
-  (response) => {},
-  (err) => {
+  response => {},
+  err => {
     return Promise.resolve(err);
   }
 );
 
 // 拦截处理
-const handleResponse = ({
-  config,
-  response
-}) => {
+const handleResponse = ({ config, response }) => {
+  console.log(config);
+
   if (config.loading) {
     loadingNum--;
     loadingFun(loadingNum); //loding
@@ -97,7 +94,7 @@ const handleResponse = ({
   return response.data.data;
 };
 
-const fly_request = (config) => {
+const fly_request = config => {
   let url = config.url;
   const method = (config.method || "").toLowerCase();
   let params = config.params || {};
@@ -106,15 +103,15 @@ const fly_request = (config) => {
     loadingNum++;
     loadingFun(loadingNum);
   }
-  return fly[method](url, params)
-    .then((response) => {
+  return fly[method](url, params, {})
+    .then(response => {
       return Promise.resolve({
         config,
         response,
       });
     })
     .then(handleResponse)
-    .catch((error) => {
+    .catch(error => {
       return Promise.reject(error);
     });
 };

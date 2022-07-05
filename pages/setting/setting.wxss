@@ -1,0 +1,4 @@
+/* pages/setting/setting.wxss */
+.yhxy{
+  padding: 30rpx;
+}

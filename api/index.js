@@ -187,6 +187,9 @@ export default {
       params,
       loading: false,
       isThree: false,
+      headers:{
+        "ContentType": "1"
+      }
     });
   },
   setBookPv(params) {

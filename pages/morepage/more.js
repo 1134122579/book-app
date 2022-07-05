@@ -6,9 +6,8 @@ Component({
       type: Object,
       value: {},
       observer(newV, oldV) {
-        console.log(newV)
         if (newV.is_admin == 1) {
-          powerlist.push("admin");
+          let powerlist = this.data.powerlist.concat("admin");
           this.setData({
             powerlist,
           });
@@ -20,7 +19,7 @@ Component({
    * 页面的初始数据
    */
   data: {
-    powerlist: ["user", "admin"],
+    powerlist: ["user"],
     navHeight: appInst.globalData.navHeight,
     list: [
       {
@@ -107,18 +106,18 @@ Component({
         isLink: false,
         isbutton: false,
       },
-      // {
-      //   title: "会员协议",
-      //   icon: "records",
-      //   to: "../../pages/setting/setting",
-      //   linktype: "navigateTo",
-      //   value: "",
-      //   isborder: false,
-      //   marginTop: "marginTop",
-      //   is_power: "user",
-      //   isLink: false,
-      //   isbutton: false,
-      // },
+      {
+        title: "用户协议",
+        icon: "description",
+        to: "../../pages/setting/setting",
+        linktype: "navigateTo",
+        value: "",
+        isborder: false,
+        marginTop: "",
+        is_power: "user",
+        isLink: false,
+        isbutton: false,
+      },
     ],
   },
 

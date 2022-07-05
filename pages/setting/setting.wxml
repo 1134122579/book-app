@@ -1,0 +1,3 @@
+<view class="yhxy">
+	<rich-text space="emsp" nodes="{{yhxy}}"></rich-text>
+</view>

@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/setting/setting",
     "pages/bookclass/bookclass",
     "pages/booklist/booklist",
     "pages/newpage/newpage",

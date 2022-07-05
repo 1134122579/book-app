@@ -1,6 +1,14 @@
 // app.js
 App({
-  onLaunch() {
+  onLaunch(options) {
+    console.log(options)
+    // let qrId = decodeURIComponent(options.query.scene)
+    // console.log(qrId)
+    // if (options.scene) {
+    //   Object.assign(this.options, this.getScene(options.scene)) // 获取二维码参数，绑定在当前this.options对象上
+    // }
+    // console.log(this.options) // 这时候就会发现this.options上就会有对应的参数了
+  //  console.log(this.getScene(options.query.scene)) 
     this.getwxcode();
     // 展示本地存储能力
     const logs = wx.getStorageSync("logs") || [];
@@ -43,10 +51,20 @@ App({
       });
     } else {
     }
+  },  
+  getScene: function(scene = "") {
+    if (scene == "") return {}
+    let res = {}
+    let params = decodeURIComponent(scene).split("&")
+    params.forEach(item => {
+      let pram = item.split("=")
+      res[pram[0]] = pram[1]
+    })
+    return res
   },
   getwxcode() {
     // 小程序扫码场景值
-    const qrcodeScenes = [1047, 1048, 1049];
+    const qrcodeScenes = [1047, 1048, 1049,1011];
     const { query, scene: pageScene } = wx.getLaunchOptionsSync();
     let optionsQuery = query;
     const enterOptionsQuery = wx.getEnterOptionsSync().query;
@@ -54,11 +72,12 @@ App({
     if (qrcodeScenes.includes(pageScene) && !enterOptionsQuery) {
       optionsQuery = wx.getEnterOptionsSync().query;
     }
-    console.log(optionsQuery);
-    this.globalData.table_no=optionsQuery.table_no||10
+    this.globalData.table_no=optionsQuery.tabId||this.getScene(optionsQuery.scene).tabId||10
+    console.log(optionsQuery,this.getScene(optionsQuery.scene).tabId,this.globalData.table_no);
   },
   globalData: {
     userInfo: null,
+    homeactive:'',
     table_no:10,
   },
 });

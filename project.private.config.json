@@ -79,7 +79,14 @@
           "name": "",
           "pathName": "pages/home/home",
           "query": "table_no=11",
-          "scene": null,
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/home/home",
+          "query": "tabId=13",
+          "scene": 1011,
           "launchMode": "default"
         }
       ]
