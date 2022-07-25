@@ -128,7 +128,7 @@ export default {
   },
   getHotBookList(params) {
     return fly({
-      url: `getHotBookList`,
+      url: `getTuiBookList`,
       method: "get",
       params,
       loading: true,
@@ -213,6 +213,24 @@ export default {
   getBookComment(params) {
     return fly({
       url: `getBookComment`,
+      method: "post",
+      params,
+      loading: false,
+      isThree: false,
+    });
+  },
+  getBookRankList(params) {
+    return fly({
+      url: `getBookRankList`,
+      method: "post",
+      params,
+      loading: false,
+      isThree: false,
+    });
+  },
+  getRechargeList(params) {
+    return fly({
+      url: `getRechargeList`,
       method: "post",
       params,
       loading: false,

@@ -1,6 +1,8 @@
-
 <view class="list">
+  <van-tabs color="#787878" bind:change="ontabChange" active="{{activeTab}}">
+    <van-tab wx:for="{{tabsList}}" wx:key="index" title="{{item.name}}" name="{{item.id}}"></van-tab>
+  </van-tabs>
   <block wx:for="{{list}}" wx:key="index">
-    <BooknotModel book="{{item}}" bind:onCollect="onCollect"/>
-</block>
+    <BooknotModel book="{{item}}" bind:onCollect="onCollect" />
+  </block>
 </view>

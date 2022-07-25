@@ -34,8 +34,8 @@
       <text class="now_chunk_one">{{bookinfo.pv_num}}浏览</text>
     </view>
   </view>
-  <view  bindtap="oncollect" wx:if="{{!isorder}}">
+  <!-- <view  bindtap="oncollect" wx:if="{{!isorder}}">
     <iconfont name="xin" size="24" wx:if="{{bookinfo.is_collect==1}}"/>
     <iconfont name="icon-test" size="24" wx:else/>
-  </view>
+  </view> -->
 </view>

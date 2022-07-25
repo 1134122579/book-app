@@ -11,7 +11,7 @@ Page({
   },
   getCollectLog() {
     let { page, list } = this.data;
-    Api.getCollectLog({ page }).then((res) => {
+    Api.getRechargeList({ page }).then((res) => {
       this.setData({
         ismore:res.length<=0
       })

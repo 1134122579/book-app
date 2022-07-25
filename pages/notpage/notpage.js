@@ -5,24 +5,83 @@ Page({
    * 页面的初始数据
    */
   data: {
+    page:1,
+    tabsList: [
+      {
+        id: "top",
+        name: "推荐",
+      },
+      {
+        id: "pl_num",
+        name: "热评",
+      },
+      {
+        id: "pv_num",
+        name: "浏览",
+      },
+      {
+        id: "rent_num",
+        name: "借阅",
+      },
+    ],
     list: [],
+    activeTab:'top'
   },
-  getList() {
-    Api.getHotBookList().then((res) => {
-      res = res.map((item) => {
+  ontabChange(event) {
+    console.log(event.detail);
+    let { name } = event.detail;
+    this.setData({
+      page: 1,
+      activeTab:name,
+    });
+    if (name == "top") {
+      this.getList();
+    } else {
+      this.getBookRankList(name);
+    }
+  },
+  // 排行
+  getBookRankList(order_field) {
+    let { page, list } = this.data;
+    Api.getBookRankList({ order_field, page }).then(res => {
+      // res = res.slice(0, 5);
+      res = res.map(item => {
         item["create_time"] = "";
         return item;
       });
-      this.setData({
-        list: res,
-      });
+      if (page == 1) {
+        this.setData({
+          list: res,
+        });
+      } else {
+        this.setData({
+          list: list.concat(res),
+        });
+      }
     });
   },
-  onCollect(event){
-    console.log(event)
-    this.getList()
+  getList() {
+    let { page, list } = this.data;
+    Api.getHotBookList({ page }).then(res => {
+      res = res.map(item => {
+        item["create_time"] = "";
+        return item;
+      });
+      if (page == 1) {
+        this.setData({
+          list: res,
+        });
+      } else {
+        this.setData({
+          list: list.concat(res),
+        });
+      }
+    });
   },
-
+  onCollect(event) {
+    console.log(event);
+    this.getList();
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -59,7 +118,17 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {},
+  onReachBottom: function () {
+    console.log("上拉")
+    let { activeTab,page } = this.data
+   this.data.page++
+   console.log(this.data.page)
+    if (activeTab == "top") {
+      this.getList();
+    } else {
+      this.getBookRankList(activeTab);
+    }
+  },
 
   /**
    * 用户点击右上角分享

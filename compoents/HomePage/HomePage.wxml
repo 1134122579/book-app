@@ -34,10 +34,7 @@
     </view>
   </block>
   <view class="notice">
-    <van-notice-bar
-  left-icon="volume-o"
-  text="{{msg}}"
-/>
+    <van-notice-bar left-icon="volume-o" text="{{msg}}" />
   </view>
 
   <!-- 书籍分类 -->
@@ -82,12 +79,17 @@
     <view class="modelBlock">
       <view class="type_style">
         <view class="type_title">
-          热门书籍
+          书籍排行
         </view>
         <view class="moreStyle" bindtap="gonot">
           <view>更多</view>
           <van-icon name="arrow" />
         </view>
+      </view>
+      <view class="ph">
+        <van-tabs type="card" color="#787878" bind:change="ontabChange" active="{{ activetab }}">
+          <van-tab wx:for="{{tabsList}}" wx:key="index" title="{{item.name}}" name="{{item.id}}"></van-tab>
+        </van-tabs>
       </view>
       <!-- 列表 -->
       <view class="now_list">

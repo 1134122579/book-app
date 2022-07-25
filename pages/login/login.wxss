@@ -7,6 +7,9 @@ page{
 .newcontent{
   width: 100%;
   height: 100%;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 200rpx 0 100rpx;
 }
 .buttonSyule{
   margin: 0 auto;
@@ -21,11 +24,16 @@ page{
   z-index: 2;
   left: 50%;
   bottom: 200rpx;
-  width: 160rpx;
-  height: 160rpx;
+  width: 80%;
+  /* width: 160rpx;
+  height: 160rpx; */
   border-radius: 160rpx;
   /* animation: sway 10s ease-in-out infinite; */
   opacity: .95;
+}
+.flooter-logo{
+  margin-top: 100rpx;
+  width: 18%;
 }
 @keyframes sway{
   0% {transform: translate3d(0,20rpx,0) rotate(-15deg); }

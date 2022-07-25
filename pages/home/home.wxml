@@ -1,7 +1,7 @@
 <van-transition duration="400" show="{{istransition }}" name="fade" custom-class="block">
   <!-- 首页 -->
   <block wx:if="{{ active=='home' }}">
-  <HomePage HotBookList="{{HotBookList}}" bookclasslist="{{bookclasslist}}" NewBookList="{{NewBookList}}" msg="{{msg}}"/>
+  <HomePage HotBookList="{{HotBookList}}" bookclasslist="{{bookclasslist}}" NewBookList="{{NewBookList}}" msg="{{msg}}" bind:onTabChange="onTabChange"/>
   </block>
   <!-- 借阅流程 -->
   <block wx:if="{{ active=='class' }}">

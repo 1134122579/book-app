@@ -113,7 +113,6 @@ white-space: nowrap;
 /* 热门书籍 */
 .now_list {
   padding: 20rpx 20rpx;
-  padding-top: 90rpx;
   box-sizing: border-box;
 }
 
@@ -183,3 +182,7 @@ white-space: nowrap;
   right: -26px;
   margin-top: 5%;
 }
+.ph{
+  padding: 30rpx 80rpx;
+  padding-top: 60rpx;
+  }

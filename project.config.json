@@ -3,10 +3,11 @@
   "packOptions": {
     "ignore": [
       {
-        "type": "file",
-        "value": ".eslintrc.js"
+        "value": ".eslintrc.js",
+        "type": "file"
       }
-    ]
+    ],
+    "include": []
   },
   "setting": {
     "urlCheck": true,
@@ -55,15 +56,6 @@
   "libVersion": "2.19.4",
   "appid": "wxad53320dd27f5962",
   "projectname": "%E5%9F%8E%E5%B8%82%E4%B9%A6%E6%88%BF",
-  "debugOptions": {
-    "hidedInDevtools": []
-  },
-  "scripts": {},
-  "staticServerOptions": {
-    "baseURL": "",
-    "servePath": ""
-  },
-  "isGameTourist": false,
   "condition": {
     "search": {
       "list": []
@@ -83,5 +75,9 @@
     "miniprogram": {
       "list": []
     }
+  },
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
   }
 }
